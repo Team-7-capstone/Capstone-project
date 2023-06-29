@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-import { LoginAPI, GoogleSignInAPI } from "../api/AuthAPI";
+import { RegisterAPI, GoogleSignInAPI } from "../api/AuthAPI";
 import LinkedinLogo from "../assets/linkedinLogo.png"
 import GoogleButton from "react-google-button";
 import "../Sass/LoginComponent.scss"
 import { toast } from "react-toastify";
 
 
-const LoginComponent = () => {
+const RegisterComponent = () => {
     let navigate = useNavigate()
     const [credentials, setCredentials] = useState({})
     const login = async () => {
         try {
-            let res = await LoginAPI(credentials.email, credentials.password)
-            toast.success('Signed In to Linkedin')
+            let res = await RegisterAPI(credentials.email, credentials.password)
+            toast.success('Account Created!')
             navigate('/home')
         } catch (error) {
             console.log(error)
-            toast.error('Please Check your Credentials')
+            toast.error('Cannot Create your Account')
         }
 
     }
@@ -30,25 +30,24 @@ const LoginComponent = () => {
         <div className="login-wrapper">
             <img src={LinkedinLogo} className="linkedinLogo" />
             <div className="login-wrapper-inner">
-                <h1 className="heading">Sign in</h1>
-                <p className="sub-heading">Stay updated on you professional world</p>
+                <h1 className="heading">Make the most of your professional life</h1>
                 <div className="auth-inputs">
                     <input
                         onChange={(event) =>
                             setCredentials({ ...credentials, email: event.target.value })}
                         type="email"
                         className="common-input"
-                        placeholder="Email or Phone"
+                        placeholder="Email or phone number"
                     />
                     <input
                         onChange={(event) =>
                             setCredentials({ ...credentials, password: event.target.value })}
                         type="password"
                         className="common-input"
-                        placeholder="Password"
+                        placeholder="Password (6 or more characters)"
                     />
                     <button onClick={login} className="login-btn">
-                        Sign in
+                        Agree & Join
                     </button>
                 </div>
                 <hr data-content="or" className="hr-text" />
@@ -57,7 +56,7 @@ const LoginComponent = () => {
                         onClick={googleSignIn}
                     />
                     <p className="go-to-signup">
-                        New to LinkedIn? <span className="join-now" onClick={() => navigate('/register')}>Join Now</span>
+                        Already on LinkedIn? <span className="join-now" onClick={() => navigate('/')}>Log in</span>
                     </p>
                 </div>
             </div>
@@ -67,4 +66,4 @@ const LoginComponent = () => {
     )
 }
 
-export default LoginComponent
+export default RegisterComponent
