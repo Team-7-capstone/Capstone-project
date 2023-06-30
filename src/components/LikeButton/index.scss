@@ -1,0 +1,39 @@
+.like-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 7px 10px;
+    cursor: pointer;
+
+    p {
+        font-family: system-ui;
+        font-weight: 400;
+        color: grey;
+        font-size: 13px;
+        margin-left: 5px;
+    }
+
+    .likes-inner {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        color: grey;
+        font-size: 16px;
+        
+        .blue {
+            color: #0a66c2;
+        }
+        .black{
+
+        }
+
+        p {
+        font-family: system-ui;
+        font-weight: 600;
+        color: grey;
+        font-size: 13px;
+    
+    }
+}
+}
