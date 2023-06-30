@@ -1,6 +1,8 @@
 import React from "react";
 import LinkedinLogo from "../../../assets/LinkedinLogo.png";
+import user from "../../../assets/user.png";
 import "./index.scss";
+
 import {
   AiOutlineHome,
   AiOutlineUserSwitch,
@@ -15,12 +17,13 @@ export default function Topbar() {
     <div className="topbar-main">
       <img className="linkedin-logo" src={LinkedinLogo} alt="LinkedinLogo" />
       <div className="react-icons">
-        <AiOutlineSearch size={40} className="react-icon" />
-        <AiOutlineHome size={40} />
-        <AiOutlineUserSwitch size={40} className="react-icon" />
-        <BsBriefcase size={40} className="react-icon" />
-        <AiOutlineMessage size={40} className="react-icon" />
-        <AiOutlineBell size={40} className="react-icon" />
+        <AiOutlineSearch size={30} className="react-icon" />
+        <AiOutlineHome size={30} />
+        <AiOutlineUserSwitch size={30} className="react-icon" />
+        <BsBriefcase size={30} className="react-icon" />
+        <AiOutlineMessage size={30} className="react-icon" />
+        <AiOutlineBell size={30} className="react-icon" />
+        <img className="user-logo" src={user} alt="user" />
       </div>
     </div>
   );

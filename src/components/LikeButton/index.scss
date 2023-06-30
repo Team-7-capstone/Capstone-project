@@ -5,27 +5,27 @@
     gap: 5px;
     padding: 7px 10px;
     cursor: pointer;
+    margin-bottom: -20px;
 
     p {
         font-family: system-ui;
         font-weight: 400;
         color: grey;
-        font-size: 13px;
+        font-size: 14px;
         margin-left: 5px;
+        margin-top: 10px;
+        
     }
 
     .likes-inner {
         display: flex;
         align-items: center;
-        font-weight: 600;
-        color: grey;
-        font-size: 16px;
-        
+        margin-top: -20px;
         .blue {
             color: #0a66c2;
         }
-        .black{
-
+        .black {
+            color: black;
         }
 
         p {
