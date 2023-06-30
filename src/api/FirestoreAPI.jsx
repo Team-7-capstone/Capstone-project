@@ -16,29 +16,31 @@ import { toast } from "react-toastify";
 
 let dbRef = collection(firestore, "posts");
 
-export const postStatus = (status) => {
-  let object = {
-    status: status,
-  };
+export const postStatus = (object) => {
   addDoc(dbRef, object)
-    .then((res) => {
-      toast.success("Document has been added successfully")
-     })
+    .then(() => {
+      toast.success("Document has been added successfully");
+    })
     .catch((err) => {
       console.log(err);
     });
 };
 
-
+export const getStatus = (setAllStatus) => {
+  onSnapshot(dbRef, (response) => {
+    setAllStatus(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })
+    );
+  });
+};
 
 // let postsRef = collection(firestore, "posts");
 // let userRef = collection(firestore, "users");
 // let likeRef = collection(firestore, "likes");
 // let commentsRef = collection(firestore, "comments");
 // let connectionRef = collection(firestore, "connections");
-
-
-  
 
 // export const getStatus = (setAllStatus) => {
 //   const q = query(postsRef, orderBy("timeStamp"));
@@ -232,4 +234,3 @@ export const postStatus = (status) => {
 //     console.log(err);
 //   }
 // };
-

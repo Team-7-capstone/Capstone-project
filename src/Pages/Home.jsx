@@ -6,20 +6,18 @@ import { useNavigate } from "react-router";
 import Loader from "../components/common/Loader";
 
 const Home = () => {
-    const [loading, setLoading] = useState(true)
-    let navigate = useNavigate()
-    useEffect(() => {
-        onAuthStateChanged(auth, res => {
-            if (!res?.accessToken) {
-                navigate('/')
-            } else {
-                setLoading(false)
-            }
-        })
-    }, [])
-    return (
-        loading ? <Loader /> : <HomeComponent />
-    )
-}
+  const [loading, setLoading] = useState(false);
+  let navigate = useNavigate();
+  useEffect(() => {
+    onAuthStateChanged(auth, (res) => {
+      if (!res?.accessToken) {
+        navigate("/");
+      } else {
+        setLoading(false);
+      }
+    });
+  }, []);
+  return loading ? <Loader /> : <HomeComponent />;
+};
 
 export default Home;

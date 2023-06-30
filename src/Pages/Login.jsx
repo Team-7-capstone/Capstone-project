@@ -6,21 +6,19 @@ import { useNavigate } from "react-router";
 import Loader from "../components/common/Loader";
 
 const Login = () => {
-    const [loading, setLoading] = useState(true)
-    let navigate = useNavigate()
-    useEffect(() => {
-        onAuthStateChanged(auth, res => {
-            if (res?.accessToken) {
-                navigate('/home')
-            } else {
-                setLoading(false)
-            }
-        })
-    }, [])
+  const [loading, setLoading] = useState(false);
+  let navigate = useNavigate();
+  useEffect(() => {
+    onAuthStateChanged(auth, (res) => {
+      if (res?.accessToken) {
+        navigate("/home");
+      } else {
+        setLoading(false);
+      }
+    });
+  }, []);
 
-    return (
-        loading ? <Loader /> : <LoginComponent />
-    )
-}
+  return loading ? <Loader /> : <LoginComponent />;
+};
 
-export default Login
+export default Login;
