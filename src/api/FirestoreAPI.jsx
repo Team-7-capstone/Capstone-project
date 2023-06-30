@@ -34,7 +34,7 @@ export const postStatus = (status) => {
 // let postsRef = collection(firestore, "posts");
 // let userRef = collection(firestore, "users");
 // let likeRef = collection(firestore, "likes");
-// let commentsRef = collection(firestore, "comments");
+let commentsRef = collection(firestore, "comments");
 // let connectionRef = collection(firestore, "connections");
 
 
@@ -148,18 +148,18 @@ export const postStatus = (status) => {
 //   }
 // };
 
-// export const postComment = (postId, comment, timeStamp, name) => {
-//   try {
-//     addDoc(commentsRef, {
-//       postId,
-//       comment,
-//       timeStamp,
-//       name,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+export const postComment = (postId, comment, timeStamp, name) => {
+  try {
+    addDoc(commentsRef, {
+      postId,
+      comment,
+      timeStamp,
+      name,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 // export const getComments = (postId, setComments) => {
 //   try {

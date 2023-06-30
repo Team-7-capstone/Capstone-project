@@ -1,5 +1,10 @@
 import React, { useMemo, useState } from "react";
-import { likePost, getLikesByUser } from "../../../api/FirestoreAPI";
+import {
+  likePost,
+  getLikesByUser,
+  postComment,
+} from "../../../api/FirestoreAPI";
+import getCurrentTimeStamp from "../../../helpers/useMoment"
 import "./index.scss";
 import { AiOutlineHeart, AiFillHeart, AiOutlineComment } from "react-icons/ai";
 
@@ -13,7 +18,13 @@ export default function LikeButton({ userId, postId }) {
   };
 
   const getComment = (event) => {
-    setComment(event.target.value)
+    setComment(event.target.value);
+  };
+
+  const addComment = () => {
+    postComment(postId, comment, getCurrentTimeStamp("LLL")).then(() => {
+      setComment("");
+    });
   };
 
   useMemo(() => {
@@ -53,12 +64,15 @@ export default function LikeButton({ userId, postId }) {
       {showCommentBox ? (
         <>
           <input
-            onClick={getComment}
+            onChangek={getComment}
             placeholder="Add a Comment"
             className="comment-input"
             name="comment"
+            value={comment}
           />
-          <button className="add-comment-btn">Add a Comment</button>
+          <button className="add-comment-btn" onClick={addComment}>
+            Add Comment
+          </button>
         </>
       ) : (
         <></>
