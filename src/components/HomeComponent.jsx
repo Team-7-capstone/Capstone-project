@@ -1,10 +1,12 @@
 import React from "react";
 
+import "../Sass/HomeComponent.scss";
+import PostStatus from "./common/PostUpdate";
 
-const HomeComponent = () => {
-    return (
-        <div><h1>HomeComponent</h1></div>
-    )
+export default function HomeComponent() {
+  return (
+    <div className="home-component">
+      <PostStatus />
+    </div>
+  );
 }
-
-export default HomeComponent
