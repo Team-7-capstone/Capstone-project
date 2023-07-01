@@ -6,8 +6,7 @@ import { getUniqueId } from "../../../helpers/getUniqueId";
 import { getCurrentTimeStamp } from "../../../helpers/useMoment";
 import "./index.scss";
 
-export default function PostStatus() {
-  let userEmail = localStorage.getItem("userEmail");
+export default function PostStatus({ currentUser }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [status, setStatus] = useState("");
   const [allStatuses, setAllStatus] = useState([]);
@@ -15,7 +14,8 @@ export default function PostStatus() {
     let object = {
       status: status,
       timeStamp: getCurrentTimeStamp("LLL"),
-      userEmail: userEmail,
+      userEmail: currentUser.email,
+      userName: currentUser.name,
       postId: getUniqueId()
     };
     await postStatus(object);

@@ -58,7 +58,9 @@ export const getCurrentUser = (setCurrentUser) => {
         })[0]
     );
  })
-}
+};
+
+
 // let likeRef = collection(firestore, "likes");
 // let commentsRef = collection(firestore, "comments");
 // let connectionRef = collection(firestore, "connections");
