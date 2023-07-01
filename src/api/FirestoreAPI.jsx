@@ -21,7 +21,7 @@ let userRef = collection(firestore, "users");
 export const postStatus = (object) => {
   addDoc(postRef, object)
     .then(() => {
-      toast.success("Document has been added successfully");
+      toast.success("Post has been added successfully");
     })
     .catch((err) => {
       console.log(err);
@@ -58,6 +58,18 @@ export const getCurrentUser = (setCurrentUser) => {
         })[0]
     );
  })
+};
+
+export const editProfile = (userID, payload) => {
+  let userToEdit = doc(userRef, userID);
+
+  updateDoc(userToEdit, payload)
+    .then(() => {
+      toast.success("Profile has been updated successfully");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 
@@ -130,17 +142,7 @@ export const getCurrentUser = (setCurrentUser) => {
 //   });
 // };
 
-// export const editProfile = (userID, payload) => {
-//   let userToEdit = doc(userRef, userID);
 
-//   updateDoc(userToEdit, payload)
-//     .then(() => {
-//       toast.success("Profile has been updated successfully");
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
 
 // export const likePost = (userId, postId, liked) => {
 //   try {

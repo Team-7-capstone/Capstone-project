@@ -54,3 +54,22 @@ $linkedinBlue3: #004c75;
   font-family: system-ui;
   font-size: 16px;
 }
+
+.login-btn, .save-btn {
+  width: 300px;
+  height: 50px;
+  cursor: pointer;
+  background-color: $linkedinBlue2;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  font-family: system-ui;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.login-btn:hover, .save-btn:hover {
+  background-color: $linkedinBlue3;
+}
