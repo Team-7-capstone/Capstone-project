@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import { postStatus, getStatus } from "../../../api/FirestoreAPI";
 import ModalComponent from "../Modal";
 import PostsCard from "../PostsCard";
+import { getUniqueId } from "../../../helpers/getUniqueId";
 import { getCurrentTimeStamp } from "../../../helpers/useMoment";
 import "./index.scss";
 
@@ -15,6 +16,7 @@ export default function PostStatus() {
       status: status,
       timeStamp: getCurrentTimeStamp("LLL"),
       userEmail: userEmail,
+      postId: getUniqueId()
     };
     await postStatus(object);
     await setModalOpen(false);

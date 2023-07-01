@@ -14,10 +14,12 @@ import {
 } from "firebase/firestore";
 import { toast } from "react-toastify";
 
-let dbRef = collection(firestore, "posts");
+
+let postRef = collection(firestore, "post");
+let userRef = collection(firestore, "users");
 
 export const postStatus = (object) => {
-  addDoc(dbRef, object)
+  addDoc(postRef, object)
     .then(() => {
       toast.success("Document has been added successfully");
     })
@@ -27,7 +29,7 @@ export const postStatus = (object) => {
 };
 
 export const getStatus = (setAllStatus) => {
-  onSnapshot(dbRef, (response) => {
+  onSnapshot(postRef, (response) => {
     setAllStatus(
       response.docs.map((docs) => {
         return { ...docs.data(), id: docs.id };
@@ -36,8 +38,27 @@ export const getStatus = (setAllStatus) => {
   });
 };
 
-// let postsRef = collection(firestore, "posts");
-// let userRef = collection(firestore, "users");
+export const postUserData = (object) => {
+  addDoc(userRef, object)
+    .then(() => {})
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const getCurrentUser = (setCurrentUser) => {
+  onSnapshot(userRef, (response) => {
+    setCurrentUser(
+      response.docs
+        .map((docs) => {
+          return { ...docs.data(), userId: docs.id };
+        })
+        .filter((item) => {
+          return item.email === localStorage.getItem("userEmail");
+        })[0]
+    );
+ })
+}
 // let likeRef = collection(firestore, "likes");
 // let commentsRef = collection(firestore, "comments");
 // let connectionRef = collection(firestore, "connections");
