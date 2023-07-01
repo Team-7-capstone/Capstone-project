@@ -73,3 +73,10 @@ $linkedinBlue3: #004c75;
 .login-btn:hover, .save-btn:hover {
   background-color: $linkedinBlue3;
 }
+
+.post-status-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
