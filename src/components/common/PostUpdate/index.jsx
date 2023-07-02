@@ -16,7 +16,8 @@ export default function PostStatus({ currentUser }) {
       timeStamp: getCurrentTimeStamp("LLL"),
       userEmail: currentUser.email,
       userName: currentUser.name,
-      postId: getUniqueId()
+      postId: getUniqueId(),
+      userId: currentUser.userId
     };
     await postStatus(object);
     await setModalOpen(false);
@@ -43,7 +44,7 @@ export default function PostStatus({ currentUser }) {
       />
       <div>
         {allStatuses.map((posts) => {
-          return <PostsCard posts={posts} />;
+          return <PostsCard key={posts.id} posts={posts} />;
         })}
       </div>
     </div>

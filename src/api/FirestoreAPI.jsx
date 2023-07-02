@@ -72,6 +72,28 @@ export const editProfile = (userID, payload) => {
     });
 };
 
+export const getSingleStatus = (setAllStatus, id) => {
+  const singlePostQuery = query(postRef, where("userId", "==", id));
+  onSnapshot(singlePostQuery, (response) => {
+    setAllStatus(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })
+    );
+  });
+};
+
+export const getSingleUser = (setCurrentUser, email) => {
+  const singleUserQuery = query(userRef, where("email", "==", email));
+  onSnapshot(singleUserQuery, (response) => {
+    setCurrentUser(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })[0]
+    );
+  });
+};
+
 
 // let likeRef = collection(firestore, "likes");
 // let commentsRef = collection(firestore, "comments");
@@ -98,27 +120,6 @@ export const editProfile = (userID, payload) => {
 //   });
 // };
 
-// export const getSingleStatus = (setAllStatus, id) => {
-//   const singlePostQuery = query(postsRef, where("userID", "==", id));
-//   onSnapshot(singlePostQuery, (response) => {
-//     setAllStatus(
-//       response.docs.map((docs) => {
-//         return { ...docs.data(), id: docs.id };
-//       })
-//     );
-//   });
-// };
-
-// export const getSingleUser = (setCurrentUser, email) => {
-//   const singleUserQuery = query(userRef, where("email", "==", email));
-//   onSnapshot(singleUserQuery, (response) => {
-//     setCurrentUser(
-//       response.docs.map((docs) => {
-//         return { ...docs.data(), id: docs.id };
-//       })[0]
-//     );
-//   });
-// };
 
 // export const postUserData = (object) => {
 //   addDoc(userRef, object)

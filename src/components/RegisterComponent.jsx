@@ -6,6 +6,7 @@ import GoogleButton from "react-google-button";
 import "../Sass/LoginComponent.scss";
 import { toast } from "react-toastify";
 import { postUserData } from "../api/FirestoreAPI";
+import { getUniqueId } from "../helpers/getUniqueId";
 
 const RegisterComponent = () => {
   let navigate = useNavigate();
@@ -14,7 +15,7 @@ const RegisterComponent = () => {
     try {
       let res = await RegisterAPI(credentials.email, credentials.password);
       toast.success("Account Created!");
-      postUserData({name: credentials.name, email: credentials.email})
+      postUserData({userId: getUniqueId() ,name: credentials.name, email: credentials.email})
       navigate("/home");
       localStorage.setItem("userEmail", res.user.email);
     } catch (error) {
