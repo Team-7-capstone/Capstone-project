@@ -3,7 +3,7 @@ import { editProfile } from "../../../api/FirestoreAPI";
 import "./index.scss"
 
 const ProfileEdit = ( { onEdit, currentUser } ) => {
-    const [editInputs, setEditInput] = useState({})
+    const [editInputs, setEditInput] = useState(currentUser)
 
     const getInput = (e) => {
         let {name, value} = e.target;
@@ -22,11 +22,29 @@ const ProfileEdit = ( { onEdit, currentUser } ) => {
                 <button onClick={onEdit}>Go Back</button>
             </div>
             <div className="profile-edits">
-                <input onChange={getInput} className="common-input" type="text" name="name" placeholder="Name"/>
-                <input onChange={getInput} className="common-input" type="text" name="headline" placeholder="Headline"/>
-                <input onChange={getInput} className="common-input" type="text" name="location" placeholder="Location"/>
-                <input onChange={getInput} className="common-input" type="text" name="expertise" placeholder="Expertise"/>
-                <input onChange={getInput} className="common-input" type="text" name="intrest" placeholder="Intrest"/>
+                <label htmlFor="name">Name</label>
+                <input onChange={getInput} className="common-input" type="text" value={editInputs.name} name="name" placeholder="Name"/>
+
+                <label htmlFor="headline">Bio</label>
+                <input onChange={getInput} className="common-input" type="text" value={editInputs.headline} name="headline" placeholder="Headline"/>
+                
+                <label htmlFor="location">Location</label>
+                <input onChange={getInput} className="common-input" type="text" value={editInputs.location} name="location" placeholder="Location"/>
+
+                <label htmlFor="expertise">Skills</label>
+                <input onChange={getInput} className="common-input" type="text" value={editInputs.expertise} name="expertise" placeholder="Expertise"/>
+
+                <label htmlFor="intrest">Interests</label>
+                <input onChange={getInput} className="common-input" type="text" value={editInputs.intrest} name="intrest" placeholder="Interest"/>
+
+                <label htmlFor="aboutMe">About</label>
+                <textarea className="common-textarea"
+                 onChange={getInput}
+                 name="aboutMe"
+                 value={editInputs.aboutMe}
+                 cols=""
+                 rows="5" 
+                />
             </div>
             <div className="save-container">
                 <button onClick={updateProfileData} className="save-btn">Save</button>

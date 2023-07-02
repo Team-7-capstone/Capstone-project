@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import { getSingleStatus, getSingleUser } from "../../../api/FirestoreAPI";
 import './index.scss'
 import PostsCard from "../PostsCard";
+// import { HiOutlinePencil } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
 // import { getStatus } from "../../../api/FirestoreAPI";
 
@@ -40,6 +41,11 @@ const ProfileCard = ({ currentUser, onEdit}) => {
                             ? currentUser.headline
                             : currentProfile?.headline}
                         </p>
+                        <p className="about">
+                        {Object.values(currentProfile).length === 0
+                            ? currentUser.aboutMe
+                            : currentProfile?.aboutMe}
+                        </p>
                         <p className="location">
                         {Object.values(currentProfile).length === 0
                             ? currentUser.location
@@ -51,16 +57,14 @@ const ProfileCard = ({ currentUser, onEdit}) => {
                     </div>
                     <div className="right-info">
                         <p className="expertise">
-                         Expertise:
                          {Object.values(currentProfile).length === 0
-                            ? currentUser.expertise
-                            : currentProfile?.expertise}
+                            ? `Skills: ${currentUser.expertise}`
+                            : `Skills: ${currentProfile?.expertise}`}
                         </p>
                         <p className="intrest">
-                         Interest: 
                          {Object.values(currentProfile).length === 0
-                            ? currentUser.intrest
-                            : currentProfile?.intrest}
+                            ? `Interests: ${currentUser.intrest}`
+                            : `Interest: ${currentProfile?.intrest}`}
                         </p>
                     </div>
                 </div>

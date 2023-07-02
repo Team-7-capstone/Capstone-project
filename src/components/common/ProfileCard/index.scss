@@ -26,6 +26,7 @@
     color: rgba(0, 0, 0, 0.9);
     font-weight: 600;
     font-size: 24px;
+    margin-top: -10px;
 }
 
 .userEmail, .expertise, .intrest{
@@ -45,11 +46,11 @@
 }
 
 .heading{
-    margin-top: -10px;
+    margin-top: -15px;
     margin-bottom: 30px;
     font-family: system-ui;
-    color: rgba(0, 0, 0, 0.644);
-    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.575);
+    font-size: 1rem;
     font-weight: 600px;
     width: 400px;
     line-height: 20px;
@@ -58,8 +59,14 @@
 .edit-btn{
     position: absolute;
     right: 20px;
-    top: 30px;
+    top: 25px;
 }
+
+.about{
+    margin-top: -10px;
+    font-size: 15px;
+}
+
 
 button{
     font-family: system-ui;
@@ -67,4 +74,11 @@ button{
     cursor: pointer;
     padding: 5px 15px;
     border: none;
+    border-radius: 10px;
+}
+
+button:hover{
+    transition: 0.3s;
+    background-color: rgb(66, 64, 64);
+    color: white;
 }
