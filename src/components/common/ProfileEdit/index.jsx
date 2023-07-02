@@ -3,8 +3,15 @@ import { editProfile } from "../../../api/FirestoreAPI";
 import "./index.scss"
 
 const ProfileEdit = ( { onEdit, currentUser } ) => {
-    const [editInputs, setEditInput] = useState(currentUser)
-
+    const [editInputs, setEditInput] = useState({
+        name: currentUser?.name || '',
+        headline: currentUser?.headline || '',
+        location: currentUser?.location || '',
+        expertise: currentUser?.expertise || '',
+        intrest: currentUser?.intrest || '',
+        aboutMe: currentUser?.aboutMe || '',
+    })
+    
     const getInput = (e) => {
         let {name, value} = e.target;
         let input = {[name]: value};

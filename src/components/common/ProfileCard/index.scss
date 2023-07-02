@@ -38,6 +38,7 @@
 
 .expertise, .intrest{
     font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.63);
 }
 
 .expertise{
@@ -47,7 +48,6 @@
 
 .heading{
     margin-top: -15px;
-    margin-bottom: 30px;
     font-family: system-ui;
     color: rgba(0, 0, 0, 0.575);
     font-size: 1rem;
@@ -64,6 +64,11 @@
 
 .about{
     margin-top: -10px;
+    font-size: 1rem;
+}
+
+.location{
+    margin-bottom: 20px;
     font-size: 15px;
 }
 

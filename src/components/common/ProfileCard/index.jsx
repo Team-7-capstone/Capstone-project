@@ -41,11 +41,6 @@ const ProfileCard = ({ currentUser, onEdit}) => {
                             ? currentUser.headline
                             : currentProfile?.headline}
                         </p>
-                        <p className="about">
-                        {Object.values(currentProfile).length === 0
-                            ? currentUser.aboutMe
-                            : currentProfile?.aboutMe}
-                        </p>
                         <p className="location">
                         {Object.values(currentProfile).length === 0
                             ? currentUser.location
@@ -68,6 +63,11 @@ const ProfileCard = ({ currentUser, onEdit}) => {
                         </p>
                     </div>
                 </div>
+                <p className="about">
+                    {Object.values(currentProfile).length === 0
+                        ? currentUser.aboutMe
+                        : currentProfile?.aboutMe}
+                </p>
             </div>
 
             <div className="post-status-main">
