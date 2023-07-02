@@ -3,16 +3,18 @@ import {
   likePost,
   getLikesByUser,
   postComment,
+  getComments,
 } from "../../../api/FirestoreAPI";
-import getCurrentTimeStamp from "../../../helpers/useMoment"
+import getCurrentTimeStamp from "../../../helpers/useMoment";
 import "./index.scss";
 import { AiOutlineHeart, AiFillHeart, AiOutlineComment } from "react-icons/ai";
 
-export default function LikeButton({ userId, postId }) {
+export default function LikeButton({ userId, postId, currentUser }) {
   const [likesCount, setLikesCount] = useState(0);
   const [showCommentBox, setShowCommentBox] = useState(false);
   const [liked, setLiked] = useState(false); // posts initially unliked
   const [comment, setComment] = useState("");
+  const [comments, setComments] = useState([]);
   const handleLike = () => {
     likePost(userId, postId);
   };
@@ -22,13 +24,13 @@ export default function LikeButton({ userId, postId }) {
   };
 
   const addComment = () => {
-    postComment(postId, comment, getCurrentTimeStamp("LLL")).then(() => {
-      setComment("");
-    });
+    postComment(postId, comment, getCurrentTimeStamp("LLL"), currentUser?.name);
+    setComment("");
   };
 
   useMemo(() => {
     getLikesByUser(userId, postId, setLiked, setLikesCount);
+    getComments(postId, setComments);
   }, [userId, postId]);
 
   return (
@@ -49,7 +51,7 @@ export default function LikeButton({ userId, postId }) {
         </div>
         <div
           className="likes-comment-inner"
-          onClick={() => setShowCommentBox(true)}
+          onClick={() => setShowCommentBox(!showCommentBox)}
         >
           {
             <AiOutlineComment
@@ -64,7 +66,7 @@ export default function LikeButton({ userId, postId }) {
       {showCommentBox ? (
         <>
           <input
-            onChangek={getComment}
+            onChange={getComment}
             placeholder="Add a Comment"
             className="comment-input"
             name="comment"
@@ -73,6 +75,23 @@ export default function LikeButton({ userId, postId }) {
           <button className="add-comment-btn" onClick={addComment}>
             Add Comment
           </button>
+          {comments.length > 0 ? (
+            comments.map((comment) => {
+              return (
+                <div className="all-comments">
+                  <p className="name">{comment.name}</p>
+                  <p className="comment">{comment.comment}</p>
+                  <p className="timestamp">{comment.timeStamp}</p>
+                  {/* 
+                  <p>•</p>
+                   */}
+                 
+                </div>
+              );
+            })
+          ) : (
+            <></>
+          )}
         </>
       ) : (
         <></>
