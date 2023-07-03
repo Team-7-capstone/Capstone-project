@@ -5,7 +5,7 @@ import { auth } from "../firbaseConfig";
 import { useNavigate } from "react-router";
 import Loader from "../components/common/Loader";
 
-const Home = () => {
+const Home = ({ currentUser }) => {
   const [loading, setLoading] = useState(false);
   let navigate = useNavigate();
   useEffect(() => {
@@ -17,7 +17,7 @@ const Home = () => {
       }
     });
   }, []);
-  return loading ? <Loader /> : <HomeComponent />;
+  return loading ? <Loader /> : <HomeComponent currentUser ={currentUser}/>;
 };
 
 export default Home;

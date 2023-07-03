@@ -14,12 +14,14 @@ import {
 } from "firebase/firestore";
 import { toast } from "react-toastify";
 
-let dbRef = collection(firestore, "posts");
+
+let postRef = collection(firestore, "post");
+let userRef = collection(firestore, "users");
 
 export const postStatus = (object) => {
-  addDoc(dbRef, object)
+  addDoc(postRef, object)
     .then(() => {
-      toast.success("Document has been added successfully");
+      toast.success("Post has been added successfully");
     })
     .catch((err) => {
       console.log(err);
@@ -27,7 +29,7 @@ export const postStatus = (object) => {
 };
 
 export const getStatus = (setAllStatus) => {
-  onSnapshot(dbRef, (response) => {
+  onSnapshot(postRef, (response) => {
     setAllStatus(
       response.docs.map((docs) => {
         return { ...docs.data(), id: docs.id };
@@ -36,8 +38,63 @@ export const getStatus = (setAllStatus) => {
   });
 };
 
-// let postsRef = collection(firestore, "posts");
-// let userRef = collection(firestore, "users");
+export const postUserData = (object) => {
+  addDoc(userRef, object)
+    .then(() => {})
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const getCurrentUser = (setCurrentUser) => {
+  onSnapshot(userRef, (response) => {
+    setCurrentUser(
+      response.docs
+        .map((docs) => {
+          return { ...docs.data(), userId: docs.id };
+        })
+        .filter((item) => {
+          return item.email === localStorage.getItem("userEmail");
+        })[0]
+    );
+ })
+};
+
+export const editProfile = (userID, payload) => {
+  let userToEdit = doc(userRef, userID);
+
+  updateDoc(userToEdit, payload)
+    .then(() => {
+      toast.success("Profile has been updated successfully");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const getSingleStatus = (setAllStatus, id) => {
+  const singlePostQuery = query(postRef, where("userId", "==", id));
+  onSnapshot(singlePostQuery, (response) => {
+    setAllStatus(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })
+    );
+  });
+};
+
+export const getSingleUser = (setCurrentUser, email) => {
+  const singleUserQuery = query(userRef, where("email", "==", email));
+  onSnapshot(singleUserQuery, (response) => {
+    setCurrentUser(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })[0]
+    );
+  });
+};
+
+
 // let likeRef = collection(firestore, "likes");
 // let commentsRef = collection(firestore, "comments");
 // let connectionRef = collection(firestore, "connections");
@@ -63,27 +120,6 @@ export const getStatus = (setAllStatus) => {
 //   });
 // };
 
-// export const getSingleStatus = (setAllStatus, id) => {
-//   const singlePostQuery = query(postsRef, where("userID", "==", id));
-//   onSnapshot(singlePostQuery, (response) => {
-//     setAllStatus(
-//       response.docs.map((docs) => {
-//         return { ...docs.data(), id: docs.id };
-//       })
-//     );
-//   });
-// };
-
-// export const getSingleUser = (setCurrentUser, email) => {
-//   const singleUserQuery = query(userRef, where("email", "==", email));
-//   onSnapshot(singleUserQuery, (response) => {
-//     setCurrentUser(
-//       response.docs.map((docs) => {
-//         return { ...docs.data(), id: docs.id };
-//       })[0]
-//     );
-//   });
-// };
 
 // export const postUserData = (object) => {
 //   addDoc(userRef, object)
@@ -107,17 +143,7 @@ export const getStatus = (setAllStatus) => {
 //   });
 // };
 
-// export const editProfile = (userID, payload) => {
-//   let userToEdit = doc(userRef, userID);
 
-//   updateDoc(userToEdit, payload)
-//     .then(() => {
-//       toast.success("Profile has been updated successfully");
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
 
 // export const likePost = (userId, postId, liked) => {
 //   try {
