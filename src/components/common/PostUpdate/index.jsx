@@ -2,11 +2,11 @@ import React, { useState, useMemo } from "react";
 import { postStatus, getStatus } from "../../../api/FirestoreAPI";
 import ModalComponent from "../Modal";
 import PostsCard from "../PostsCard";
+import { getUniqueId } from "../../../helpers/getUniqueId";
 import { getCurrentTimeStamp } from "../../../helpers/useMoment";
 import "./index.scss";
 
-export default function PostStatus() {
-  let userEmail = localStorage.getItem("userEmail");
+export default function PostStatus({ currentUser }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [status, setStatus] = useState("");
   const [allStatuses, setAllStatus] = useState([]);
@@ -14,7 +14,10 @@ export default function PostStatus() {
     let object = {
       status: status,
       timeStamp: getCurrentTimeStamp("LLL"),
-      userEmail: userEmail,
+      userEmail: currentUser.email,
+      userName: currentUser.name,
+      postId: getUniqueId(),
+      userId: currentUser.userId
     };
     await postStatus(object);
     await setModalOpen(false);
@@ -41,7 +44,7 @@ export default function PostStatus() {
       />
       <div>
         {allStatuses.map((posts) => {
-          return <PostsCard posts={posts} />;
+          return <PostsCard key={posts.id} posts={posts} />;
         })}
       </div>
     </div>

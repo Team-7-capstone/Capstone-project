@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getCurrentUser } from "../../../api/FirestoreAPI";
-import LikeButton from "../LikeButton";
+import LikeButton from "../../LikeButton";
 import "./index.scss";
 
 export default function PostsCard({ posts, id }) {
@@ -17,7 +17,7 @@ export default function PostsCard({ posts, id }) {
         className="name"
         onClick={() =>
           navigate("/profile", {
-            state: { id: posts?.userID, email: posts.userEmail },
+            state: { id: posts?.userID, email: posts.userEmail }, 
           })
         }
       >
@@ -26,7 +26,7 @@ export default function PostsCard({ posts, id }) {
       <p className="timestamp">{posts.timeStamp}</p>
       <p className="status">{posts.status}</p>
 
-      <LikeButton userId={currentUser?.id} postId={posts.id} />
+      <LikeButton userId={currentUser?.id} postId={posts.id} currentUser={currentUser} /> 
     </div>
   );
 }
