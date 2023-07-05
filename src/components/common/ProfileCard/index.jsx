@@ -87,3 +87,4 @@ const ProfileCard = ({ currentUser, onEdit}) => {
 }
 
 export default ProfileCard
+

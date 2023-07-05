@@ -14,12 +14,14 @@ import {
 } from "firebase/firestore";
 import { toast } from "react-toastify";
 
-
-let postRef = collection(firestore, "post");
+let postsRef = collection(firestore, "posts");
 let userRef = collection(firestore, "users");
+let likeRef = collection(firestore, "likes");
+let commentsRef = collection(firestore, "comments");
+let connectionRef = collection(firestore, "connections");
 
 export const postStatus = (object) => {
-  addDoc(postRef, object)
+  addDoc(postsRef, object)
     .then(() => {
       toast.success("Post has been added successfully");
     })
@@ -29,7 +31,7 @@ export const postStatus = (object) => {
 };
 
 export const getStatus = (setAllStatus) => {
-  onSnapshot(postRef, (response) => {
+  onSnapshot(postsRef, (response) => {
     setAllStatus(
       response.docs.map((docs) => {
         return { ...docs.data(), id: docs.id };
@@ -51,13 +53,13 @@ export const getCurrentUser = (setCurrentUser) => {
     setCurrentUser(
       response.docs
         .map((docs) => {
-          return { ...docs.data(), userId: docs.id };
+          return { ...docs.data(), id: docs.id }; // changed from userID: => id: which caused 'like' button to work
         })
         .filter((item) => {
           return item.email === localStorage.getItem("userEmail");
         })[0]
     );
- })
+  });
 };
 
 export const editProfile = (userID, payload) => {
@@ -73,7 +75,7 @@ export const editProfile = (userID, payload) => {
 };
 
 export const getSingleStatus = (setAllStatus, id) => {
-  const singlePostQuery = query(postRef, where("userId", "==", id));
+  const singlePostQuery = query(postsRef, where("userId", "==", id));
   onSnapshot(singlePostQuery, (response) => {
     setAllStatus(
       response.docs.map((docs) => {
@@ -93,11 +95,6 @@ export const getSingleUser = (setCurrentUser, email) => {
     );
   });
 };
-
-
-// let likeRef = collection(firestore, "likes");
-// let commentsRef = collection(firestore, "comments");
-// let connectionRef = collection(firestore, "connections");
 
 // export const getStatus = (setAllStatus) => {
 //   const q = query(postsRef, orderBy("timeStamp"));
@@ -119,7 +116,6 @@ export const getSingleUser = (setCurrentUser, email) => {
 //     );
 //   });
 // };
-
 
 // export const postUserData = (object) => {
 //   addDoc(userRef, object)
@@ -143,70 +139,69 @@ export const getSingleUser = (setCurrentUser, email) => {
 //   });
 // };
 
+export const likePost = (userId, postId, liked) => {
+  try {
+    let docToLike = doc(likeRef, `${userId}_${postId}`);
+    if (liked) {
+      deleteDoc(docToLike);
+    } else {
+      setDoc(docToLike, { userId, postId });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
 
+export const getLikesByUser = (userId, postId, setLiked, setLikesCount) => {
+  try {
+    let likeQuery = query(likeRef, where("postId", "==", postId));
 
-// export const likePost = (userId, postId, liked) => {
-//   try {
-//     let docToLike = doc(likeRef, `${userId}_${postId}`);
-//     if (liked) {
-//       deleteDoc(docToLike);
-//     } else {
-//       setDoc(docToLike, { userId, postId });
-//     }
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+    onSnapshot(likeQuery, (response) => {
+      let likes = response.docs.map((doc) => doc.data());
+      let likesCount = likes?.length;
 
-// export const getLikesByUser = (userId, postId, setLiked, setLikesCount) => {
-//   try {
-//     let likeQuery = query(likeRef, where("postId", "==", postId));
+      const isLiked = likes.some((like) => like.userId === userId);
 
-//     onSnapshot(likeQuery, (response) => {
-//       let likes = response.docs.map((doc) => doc.data());
-//       let likesCount = likes?.length;
+      setLikesCount(likesCount);
+      setLiked(isLiked);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
-//       const isLiked = likes.some((like) => like.userId === userId);
+export const postComment = (postId, comment, timeStamp, name) => {
+  // took out 'name' and then put it back in to get comments to post
+  try {
+    addDoc(commentsRef, {
+      postId,
+      comment,
+      timeStamp,
+      name,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
-//       setLikesCount(likesCount);
-//       setLiked(isLiked);
-//     });
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+export const getComments = (postId, setComments) => {
+  try {
+    let singlePostQuery = query(commentsRef, where("postId", "==", postId));
 
-// export const postComment = (postId, comment, timeStamp, name) => {
-//   try {
-//     addDoc(commentsRef, {
-//       postId,
-//       comment,
-//       timeStamp,
-//       name,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+    onSnapshot(singlePostQuery, (response) => {
+      const comments = response.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        };
+      });
 
-// export const getComments = (postId, setComments) => {
-//   try {
-//     let singlePostQuery = query(commentsRef, where("postId", "==", postId));
-
-//     onSnapshot(singlePostQuery, (response) => {
-//       const comments = response.docs.map((doc) => {
-//         return {
-//           id: doc.id,
-//           ...doc.data(),
-//         };
-//       });
-
-//       setComments(comments);
-//     });
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+      setComments(comments);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 // export const updatePost = (id, status, postImage) => {
 //   let docToUpdate = doc(postsRef, id);
@@ -228,35 +223,35 @@ export const getSingleUser = (setCurrentUser, email) => {
 //   }
 // };
 
-// export const addConnection = (userId, targetId) => {
-//   try {
-//     let connectionToAdd = doc(connectionRef, `${userId}_${targetId}`);
+export const addConnection = (userId, targetId) => {
+  try {
+    let connectionToAdd = doc(connectionRef, `${userId}_${targetId}`);
 
-//     setDoc(connectionToAdd, { userId, targetId });
+    setDoc(connectionToAdd, { userId, targetId });
 
-//     toast.success("Connection Added!");
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+    toast.success("Connection Added!");
+  } catch (err) {
+    console.log(err);
+  }
+};
 
-// export const getConnections = (userId, targetId, setIsConnected) => {
-//   try {
-//     let connectionsQuery = query(
-//       connectionRef,
-//       where("targetId", "==", targetId)
-//     );
+export const getConnections = (userId, targetId, setIsConnected) => {
+  try {
+    let connectionsQuery = query(
+      connectionRef,
+      where("targetId", "==", targetId)
+    );
 
-//     onSnapshot(connectionsQuery, (response) => {
-//       let connections = response.docs.map((doc) => doc.data());
+    onSnapshot(connectionsQuery, (response) => {
+      let connections = response.docs.map((doc) => doc.data());
 
-//       const isConnected = connections.some(
-//         (connection) => connection.userId === userId
-//       );
+      const isConnected = connections.some(
+        (connection) => connection.userId === userId
+      );
 
-//       setIsConnected(isConnected);
-//     });
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+      setIsConnected(isConnected);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
