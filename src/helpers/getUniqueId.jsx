@@ -1,6 +1,6 @@
 import uuid from 'react-uuid'
 
-export const getUniqueId = () => {
+export const getUniqueID = () => {
     let id = uuid();
 
     return id

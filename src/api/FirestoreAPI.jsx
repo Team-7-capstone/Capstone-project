@@ -31,7 +31,8 @@ export const postStatus = (object) => {
 };
 
 export const getStatus = (setAllStatus) => {
-  onSnapshot(postsRef, (response) => {
+  const q = query(postsRef, orderBy("timeStamp"));
+  onSnapshot(q, (response) => {
     setAllStatus(
       response.docs.map((docs) => {
         return { ...docs.data(), id: docs.id };
@@ -40,42 +41,18 @@ export const getStatus = (setAllStatus) => {
   });
 };
 
-export const postUserData = (object) => {
-  addDoc(userRef, object)
-    .then(() => {})
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
-export const getCurrentUser = (setCurrentUser) => {
+export const getAllUsers = (setAllUsers) => {
   onSnapshot(userRef, (response) => {
-    setCurrentUser(
-      response.docs
-        .map((docs) => {
-          return { ...docs.data(), id: docs.id }; // changed from userID: => id: which caused 'like' button to work
-        })
-        .filter((item) => {
-          return item.email === localStorage.getItem("userEmail");
-        })[0]
+    setAllUsers(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })
     );
   });
 };
 
-export const editProfile = (userID, payload) => {
-  let userToEdit = doc(userRef, userID);
-
-  updateDoc(userToEdit, payload)
-    .then(() => {
-      toast.success("Profile has been updated successfully");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
 export const getSingleStatus = (setAllStatus, id) => {
-  const singlePostQuery = query(postsRef, where("userId", "==", id));
+  const singlePostQuery = query(postsRef, where("userID", "==", id));
   onSnapshot(singlePostQuery, (response) => {
     setAllStatus(
       response.docs.map((docs) => {
@@ -96,48 +73,39 @@ export const getSingleUser = (setCurrentUser, email) => {
   });
 };
 
-// export const getStatus = (setAllStatus) => {
-//   const q = query(postsRef, orderBy("timeStamp"));
-//   onSnapshot(q, (response) => {
-//     setAllStatus(
-//       response.docs.map((docs) => {
-//         return { ...docs.data(), id: docs.id };
-//       })
-//     );
-//   });
-// };
+export const postUserData = (object) => {
+  addDoc(userRef, object)
+    .then(() => {})
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
-// export const getAllUsers = (setAllUsers) => {
-//   onSnapshot(userRef, (response) => {
-//     setAllUsers(
-//       response.docs.map((docs) => {
-//         return { ...docs.data(), id: docs.id };
-//       })
-//     );
-//   });
-// };
+export const getCurrentUser = (setCurrentUser) => {
+  onSnapshot(userRef, (response) => {
+    setCurrentUser(
+      response.docs
+        .map((docs) => {
+          return { ...docs.data(), id: docs.id };
+        })
+        .filter((item) => {
+          return item.email === localStorage.getItem("userEmail");
+        })[0]
+    );
+  });
+};
 
-// export const postUserData = (object) => {
-//   addDoc(userRef, object)
-//     .then(() => {})
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
+export const editProfile = (userID, payload) => {
+  let userToEdit = doc(userRef, userID);
 
-// export const getCurrentUser = (setCurrentUser) => {
-//   onSnapshot(userRef, (response) => {
-//     setCurrentUser(
-//       response.docs
-//         .map((docs) => {
-//           return { ...docs.data(), id: docs.id };
-//         })
-//         .filter((item) => {
-//           return item.email === localStorage.getItem("userEmail");
-//         })[0]
-//     );
-//   });
-// };
+  updateDoc(userToEdit, payload)
+    .then(() => {
+      toast.success("Profile has been updated successfully");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
 export const likePost = (userId, postId, liked) => {
   try {
@@ -171,7 +139,6 @@ export const getLikesByUser = (userId, postId, setLiked, setLikesCount) => {
 };
 
 export const postComment = (postId, comment, timeStamp, name) => {
-  // took out 'name' and then put it back in to get comments to post
   try {
     addDoc(commentsRef, {
       postId,
@@ -203,25 +170,25 @@ export const getComments = (postId, setComments) => {
   }
 };
 
-// export const updatePost = (id, status, postImage) => {
-//   let docToUpdate = doc(postsRef, id);
-//   try {
-//     updateDoc(docToUpdate, { status, postImage });
-//     toast.success("Post has been updated!");
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+export const updatePost = (id, status, postImage) => {
+  let docToUpdate = doc(postsRef, id);
+  try {
+    updateDoc(docToUpdate, { status, postImage });
+    toast.success("Post has been updated!");
+  } catch (err) {
+    console.log(err);
+  }
+};
 
-// export const deletePost = (id) => {
-//   let docToDelete = doc(postsRef, id);
-//   try {
-//     deleteDoc(docToDelete);
-//     toast.success("Post has been Deleted!");
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+export const deletePost = (id) => {
+  let docToDelete = doc(postsRef, id);
+  try {
+    deleteDoc(docToDelete);
+    toast.success("Post has been Deleted!");
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 export const addConnection = (userId, targetId) => {
   try {
