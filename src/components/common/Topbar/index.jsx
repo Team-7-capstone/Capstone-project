@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import LinkedinLogo from "../../../assets/linkedinLogo.png";
 import user from "../../../assets/user.png";
 import ProfilePopup from "../ProfilePopup";
+import SearchUsers from "../SearchUsers";
 
 import {
   AiOutlineSearch,
@@ -16,6 +17,7 @@ import "./index.scss";
 
 export default function Topbar() {
   const [popupVisible, setPopupVisible] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
 
   let navigate = useNavigate();
   const goToRoute = (route) => {
@@ -23,10 +25,9 @@ export default function Topbar() {
   };
 
   const displayPop = () => {
-    setPopupVisible(!popupVisible)
-  }
+    setPopupVisible(!popupVisible);
+  };
 
- 
   return (
     <div className="topbar-main">
       {popupVisible ? (
@@ -35,14 +36,19 @@ export default function Topbar() {
         </div>
       ) : (
         <></>
-      )};
+      )}
+      ;
       <img
         className="linkedin-logo"
         src={LinkedinLogo}
         alt="LinkedinLogo"
       ></img>
       <div className="react-icons">
-        <AiOutlineSearch size={30} className="react-icon" />
+        <AiOutlineSearch
+          size={30}
+          className="react-icon"
+          onClick={() => setIsSearch(true)}
+        />
         <AiOutlineHome
           size={30}
           className="react-icon"
@@ -57,8 +63,7 @@ export default function Topbar() {
         <AiOutlineMessage size={30} className="react-icon" />
         <AiOutlineBell size={30} className="react-icon" />
       </div>
-      <img className="user-logo" src={user} alt="user" onClick={displayPop}/>
+      <img className="user-logo" src={user} alt="user" onClick={displayPop} />
     </div>
   );
 }
-
