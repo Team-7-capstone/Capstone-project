@@ -1,19 +1,20 @@
 .like-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 5px;
-    padding: 7px 10px;
-    cursor: pointer;
-    margin-bottom: -20px;
+  display: flex;
+  justify-content: center;
 
-    .like-comment {
-        display: grid;
-        grid-template-columns: auto auto auto auto;
-        margin-top: 5px;
-      }
+  flex-direction: column;
+  gap: 5px;
+  padding: 7px 10px;
+  cursor: pointer;
+  margin-bottom: -20px;
 
-    .comment-input {
+  .like-comment {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin-top: 5px;
+  }
+
+  .comment-input {
     height: 40px;
     background-color: whitesmoke;
     padding-left: 10px;
@@ -24,12 +25,11 @@
     font-size: 16px;
   }
 
-    .comment-input:focus {
+  .comment-input:focus {
     outline: 1px solid #4b4b4b;
     color: #4b4b4b;
   }
-
-    .add-comment-btn {
+  .add-comment-btn {
     width: 150px;
     height: 35px;
     background-color: #0a66c2;
@@ -41,7 +41,6 @@
     margin-top: 15px;
     margin-bottom: 15px;
   }
-
   .all-comments {
     display: flex;
     justify-content: center;
@@ -68,39 +67,36 @@
       top: 10px;
     }
   }
-  
-    .hr-line {
-        margin-top: -17px;
-        hr {
-          border-top: 1px solid rgb(181, 181, 181);
-        }
-      }
+  .hr-line {
+    margin-top: -17px;
+    hr {
+      border-top: 1px solid rgb(181, 181, 181);
+    }
+  }
+  p {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    color: rgba(58, 58, 58, 0.835);
+    font-size: 14px;
+    margin-left: 5px;
+  }
 
+  .likes-comment-inner {
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    .blue {
+      color: #0a66c2;
+    }
+
+    .black {
+      color: rgba(58, 58, 58, 0.835);
+    }
     p {
-        font-family: system-ui;
-        font-weight: 400;
-        color: grey;
-        font-size: 14px;
-        margin-left: 5px;
+      font-family: Inter, sans-serif;
+      font-weight: 600;
+      color: rgba(58, 58, 58, 0.835);
+      font-size: 16px;
     }
-
-    .likes-comment-inner{
-        display: flex;
-        align-items: center;
-        margin-top: -20px;
-        .blue {
-            color: #0a66c2;
-        }
-        .black {
-            color: black;
-        }
-
-        p {
-        font-family: system-ui;
-        font-weight: 600;
-        color: grey;
-        font-size: 13px;
-    
-    }
-}
+  }
 }
