@@ -171,6 +171,7 @@ export const getLikesByUser = (userId, postId, setLiked, setLikesCount) => {
 };
 
 export const postComment = (postId, comment, timeStamp, name) => {
+  // took out 'name' and then put it back in to get comments to post
   try {
     addDoc(commentsRef, {
       postId,
