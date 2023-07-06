@@ -1,10 +1,10 @@
 import React from "react";
 import "./index.scss";
 
-export default function SearchUsers() {
+export default function SearchUsers({ setIsSearch }) {
   return (
     <div className="search-users">
-      <input />
+      <input placeholder="Search Users.." />
     </div>
   );
 }

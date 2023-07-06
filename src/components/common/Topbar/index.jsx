@@ -37,32 +37,33 @@ export default function Topbar() {
       ) : (
         <></>
       )}
-      ;
-      <img
-        className="linkedin-logo"
-        src={LinkedinLogo}
-        alt="LinkedinLogo"
-      ></img>
-      <div className="react-icons">
-        <AiOutlineSearch
-          size={30}
-          className="react-icon"
-          onClick={() => setIsSearch(true)}
-        />
-        <AiOutlineHome
-          size={30}
-          className="react-icon"
-          onClick={() => goToRoute("/home")}
-        />
-        <AiOutlineUserSwitch
-          size={30}
-          className="react-icon"
-          onClick={() => goToRoute("/profile")}
-        />
-        <BsBriefcase size={30} className="react-icon" />
-        <AiOutlineMessage size={30} className="react-icon" />
-        <AiOutlineBell size={30} className="react-icon" />
-      </div>
+
+      <img className="linkedin-logo" src={LinkedinLogo} alt="LinkedinLogo" />
+      {isSearch ? (
+        <SearchUsers />
+      ) : (
+        <div className="react-icons">
+          <AiOutlineSearch
+            size={30}
+            className="react-icon"
+            onClick={() => setIsSearch(true)}
+          />
+          <AiOutlineHome
+            size={30}
+            className="react-icon"
+            onClick={() => goToRoute("/home")}
+          />
+          <AiOutlineUserSwitch
+            size={30}
+            className="react-icon"
+            onClick={() => goToRoute("/profile")}
+          />
+          <BsBriefcase size={30} className="react-icon" />
+          <AiOutlineMessage size={30} className="react-icon" />
+          <AiOutlineBell size={30} className="react-icon" />
+        </div>
+      )}
+
       <img className="user-logo" src={user} alt="user" onClick={displayPop} />
     </div>
   );

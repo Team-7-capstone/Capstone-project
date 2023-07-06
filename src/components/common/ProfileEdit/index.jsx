@@ -1,3 +1,4 @@
+// I am currently using this ProfileEdit.jsx
 import React, { useState } from "react";
 import { editProfile } from "../../../api/FirestoreAPI";
 import "./index.scss";
@@ -19,7 +20,7 @@ const ProfileEdit = ({ onEdit, currentUser }) => {
   };
 
   const updateProfileData = async () => {
-    editProfile(currentUser?.id, editInputs); 
+    editProfile(currentUser?.id, editInputs);
     await onEdit();
   };
 
