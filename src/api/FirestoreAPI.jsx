@@ -196,7 +196,7 @@ export const addConnection = (userId, targetId) => {
 
     setDoc(connectionToAdd, { userId, targetId });
 
-    toast.success("Connection Added!");
+    toast.success("Connection Added");
   } catch (err) {
     console.log(err);
   }
