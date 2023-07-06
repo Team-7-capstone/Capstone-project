@@ -35,7 +35,7 @@ export default function Topbar() {
       ) : (
         <></>
       )}
-      ;
+
       <img
         className="linkedin-logo"
         src={LinkedinLogo}
