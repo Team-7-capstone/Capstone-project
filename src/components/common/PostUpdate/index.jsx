@@ -80,10 +80,9 @@ export default function PostStatus({ currentUser }) {
         isEdit={isEdit}
         updateStatus={updateStatus}
         uploadPostImage={uploadPostImage}
-        postImage={postImage}
         setPostImage={setPostImage}
+        postImage={postImage}
         setCurrentPost={setCurrentPost}
-        currentPost={currentPost}
       />
 
       <div>

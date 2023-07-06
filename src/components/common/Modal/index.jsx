@@ -1,5 +1,6 @@
 import React from "react";
 import { Modal, Button } from "antd";
+import { AiOutlinePicture } from "react-icons/ai";
 import "./index.scss";
 
 const ModalComponent = ({
@@ -8,6 +9,9 @@ const ModalComponent = ({
   setStatus,
   status,
   sendStatus,
+  uploadPostImage,
+  setPostImage,
+  postImage,
 }) => {
   return (
     <>
@@ -28,11 +32,22 @@ const ModalComponent = ({
           </Button>,
         ]}
       >
-        <input
+        <textarea
+          rows={3}
+          cols={3}
           className="modal-input"
           placeholder="What do you want to talk about?"
           onChange={(event) => setStatus(event.target.value)}
           value={status}
+        />
+        <label htmlFor="pic-upload">
+          <AiOutlinePicture size={30} className="picture-icon" />
+        </label>
+        <input
+          id="pic-upload"
+          type="file"
+          hidden
+          onChange={(e) => uploadPostImage(e.target.files[0], setPostImage)}
         />
       </Modal>
     </>
