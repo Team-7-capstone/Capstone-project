@@ -17,7 +17,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
   const getImage = (event) => {
     setCurrentImage(event.target.files[0]);
   };
-  console.log(currentProfile);
+
   const uploadImage = () => {
     uploadImageAPI(
       currentImage,
@@ -49,7 +49,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
         progress={progress}
       />
       <div className="profile-card">
-        {currentUser.userId === location?.state?.id ? (
+        {currentUser.id === location?.state?.id ? (
           <div className="edit-btn">
             <HiOutlinePencil className="edit-icon" onClick={onEdit} />
           </div>
@@ -104,8 +104,8 @@ export default function ProfileCard({ onEdit, currentUser }) {
         </div>
         <p className="about">
           {Object.values(currentProfile).length === 0
-            ? currentUser.about
-            : currentProfile?.about}
+            ? currentUser.aboutMe
+            : currentProfile?.aboutMe}
         </p>
       </div>
 

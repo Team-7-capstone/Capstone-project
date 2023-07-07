@@ -26,6 +26,11 @@ export default function PostsCard({ posts, id, getEditData }) {
     getConnections(currentUser.id, posts.userID, setIsConnected);
   }, [currentUser.id, posts.userID]);
 
+
+  // console.log(posts)
+  // console.log("this is user", currentUser.name)
+  // console.log("this is posts", posts)
+  
   return isConnected || currentUser.id === posts.userID ? (
     <div className="posts-card" key={id}>
       <div className="post-image-wrapper">
