@@ -19,7 +19,7 @@ const ProfileEdit = ({ onEdit, currentUser }) => {
   };
 
   const updateProfileData = async () => {
-    editProfile(currentUser?.id, editInputs); 
+    editProfile(currentUser?.id, editInputs);
     await onEdit();
   };
 

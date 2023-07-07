@@ -15,7 +15,11 @@ export default function ConnectedUsers({ user, getCurrentUser, currentUser }) {
       <p className="name">{user.name}</p>
       <p className="headline">{user.headline}</p>
 
-      <button onClick={() => getCurrentUser(user.id)}>
+      <button
+        onClick={() => {
+          getCurrentUser(user.id);
+        }}
+      >
         <AiOutlineUsergroupAdd size={20} />
         Connect
       </button>

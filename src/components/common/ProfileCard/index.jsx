@@ -1,15 +1,32 @@
 import React, { useState, useMemo } from "react";
 import { getSingleStatus, getSingleUser } from "../../../api/FirestoreAPI";
-import "./index.scss";
 import PostsCard from "../PostsCard";
-// import { HiOutlinePencil } from "react-icons/hi";
+import { HiOutlinePencil } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
-// import { getStatus } from "../../../api/FirestoreAPI";
+import FileUploadModal from "../FileUploadModal";
+import { uploadImage as uploadImageAPI } from "../../../api/ImageUpload";
+import "./index.scss";
 
-const ProfileCard = ({ currentUser, onEdit }) => {
+export default function ProfileCard({ onEdit, currentUser }) {
   let location = useLocation();
   const [allStatuses, setAllStatus] = useState([]);
   const [currentProfile, setCurrentProfile] = useState({});
+  const [currentImage, setCurrentImage] = useState({});
+  const [progress, setProgress] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+  const getImage = (event) => {
+    setCurrentImage(event.target.files[0]);
+  };
+
+  const uploadImage = () => {
+    uploadImageAPI(
+      currentImage,
+      currentUser.id,
+      setModalOpen,
+      setProgress,
+      setCurrentImage
+    );
+  };
 
   useMemo(() => {
     if (location?.state?.id) {
@@ -23,7 +40,22 @@ const ProfileCard = ({ currentUser, onEdit }) => {
 
   return (
     <>
+      <FileUploadModal
+        getImage={getImage}
+        uploadImage={uploadImage}
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        currentImage={currentImage}
+        progress={progress}
+      />
       <div className="profile-card">
+        {currentUser.id === location?.state?.id ? (
+          <div className="edit-btn">
+            <HiOutlinePencil className="edit-icon" onClick={onEdit} />
+          </div>
+        ) : (
+          <></>
+        )}
         <div className="profile-info">
           <div>
             <img
@@ -36,7 +68,7 @@ const ProfileCard = ({ currentUser, onEdit }) => {
               }
               alt="profile-image"
             />
-            <h3 className="username">
+            <h3 className="userName">
               {Object.values(currentProfile).length === 0
                 ? currentUser.name
                 : currentProfile?.name}
@@ -46,20 +78,17 @@ const ProfileCard = ({ currentUser, onEdit }) => {
                 ? currentUser.email
                 : currentProfile?.email}
             </p>
-            <p className="heading">
-              {Object.values(currentProfile).length === 0
-                ? currentUser.headline
-                : currentProfile?.headline}
-            </p>
-            <p className="location">
-              {Object.values(currentProfile).length === 0
-                ? currentUser.location
-                : currentProfile?.location}
-            </p>
-            <div className="edit-btn">
-              <button onClick={onEdit}>Edit</button>
-            </div>
+            {currentUser.location || currentProfile?.location ? (
+              <p className="location">
+                {Object.values(currentProfile).length === 0
+                  ? `${currentUser.location}`
+                  : `${currentProfile?.location}`}
+              </p>
+            ) : (
+              <></>
+            )}
           </div>
+
           <div className="right-info">
             <p className="expertise">
               {Object.values(currentProfile).length === 0
@@ -68,8 +97,8 @@ const ProfileCard = ({ currentUser, onEdit }) => {
             </p>
             <p className="intrest">
               {Object.values(currentProfile).length === 0
-                ? `Interests: ${currentUser.intrest}`
-                : `Interest: ${currentProfile?.intrest}`}
+                ? `interests: ${currentUser.intrest}`
+                : `interests: ${currentProfile?.intrest}`}
             </p>
           </div>
         </div>
@@ -81,20 +110,14 @@ const ProfileCard = ({ currentUser, onEdit }) => {
       </div>
 
       <div className="post-status-main">
-        {allStatuses
-          .filter((item) => {
-            return item.userEmail === localStorage.getItem("userEmail");
-          })
-          .map((posts) => {
-            return (
-              <div key={posts.id}>
-                <PostsCard posts={posts} />
-              </div>
-            );
-          })}
+        {allStatuses?.map((posts) => {
+          return (
+            <div key={posts.id}>
+              <PostsCard posts={posts} />
+            </div>
+          );
+        })}
       </div>
     </>
   );
-};
-
-export default ProfileCard;
+}

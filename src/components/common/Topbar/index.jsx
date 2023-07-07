@@ -23,9 +23,10 @@ export default function Topbar() {
   };
 
   const displayPop = () => {
-    setPopupVisible(!popupVisible);
-  };
+    setPopupVisible(!popupVisible)
+  }
 
+ 
   return (
     <div className="topbar-main">
       {popupVisible ? (
@@ -35,7 +36,10 @@ export default function Topbar() {
       ) : (
         <></>
       )}
-      ;
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
       <img
         className="linkedin-logo"
         src={LinkedinLogo}
@@ -51,13 +55,14 @@ export default function Topbar() {
         <AiOutlineUserSwitch
           size={30}
           className="react-icon"
-          onClick={() => goToRoute("/connections")}
+          onClick={() => goToRoute("/profile")}
         />
         <BsBriefcase size={30} className="react-icon" />
         <AiOutlineMessage size={30} className="react-icon" />
         <AiOutlineBell size={30} className="react-icon" />
       </div>
-      <img className="user-logo" src={user} alt="user" onClick={displayPop} />
+      <img className="user-logo" src={user} alt="user" onClick={displayPop}/>
     </div>
   );
 }
+
