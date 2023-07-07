@@ -15,7 +15,7 @@ import { getAllUsers } from "../../../api/FirestoreAPI";
 import ProfilePopup from "../ProfilePopup";
 import "./index.scss";
 
-export default function Topbar() {
+export default function Topbar({ currentUser }) {
   const [popupVisible, setPopupVisible] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const [users, setUsers] = useState([]);
@@ -80,7 +80,6 @@ export default function Topbar() {
         <SearchUsers
           setIsSearch={setIsSearch}
           setSearchInput={setSearchInput}
-
         />
       ) : (
         <div className="react-icons">
@@ -105,7 +104,12 @@ export default function Topbar() {
         </div>
       )}
 
-      <img className="user-logo" src={user} alt="user" onClick={displayPop} />
+      <img
+        className="user-logo"
+        src={currentUser.imageLink}
+        alt="user"
+        onClick={displayPop}
+      />
 
       {searchInput.length === 0 ? (
         <></>

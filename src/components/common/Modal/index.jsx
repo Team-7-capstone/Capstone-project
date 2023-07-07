@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Progress } from "antd";
 import { AiOutlinePicture } from "react-icons/ai";
+import ReactQuill from "react-quill";
 import "./index.scss";
 
 const ModalComponent = ({
@@ -16,6 +17,7 @@ const ModalComponent = ({
   currentPost,
   isEdit,
   updateStatus,
+  setCurrentPost,
 }) => {
   const [progress, setProgress] = useState(0);
   return (
@@ -28,11 +30,13 @@ const ModalComponent = ({
           setStatus("");
           setModalOpen(false);
           setPostImage("");
+          setCurrentPost({});
         }}
         onCancel={() => {
           setStatus("");
           setModalOpen(false);
           setPostImage("");
+          setCurrentPost({});
         }}
         onOpen={() => {
           if (!currentPost) {
@@ -46,20 +50,18 @@ const ModalComponent = ({
             type="primary"
             disabled={status.length > 0 ? false : true}
           >
-             {isEdit ? 'Update' : 'Post'}
+            {isEdit ? "Update" : "Post"}
           </Button>,
         ]}
       >
         <div className="posts-body">
-          <textarea
-            rows={3}
-            cols={3}
+          <ReactQuill
             className="modal-input"
-            placeholder="What do you want to talk about?"
-            onChange={(event) => setStatus(event.target.value)}
+            theme="snow"
             value={status}
+            placeholder="Share Something cool..."
+            onChange={setStatus}
           />
-
           {progress === 0 || progress === 100 ? (
             <></>
           ) : (
