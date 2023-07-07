@@ -80,6 +80,7 @@ export default function Topbar() {
         <SearchUsers
           setIsSearch={setIsSearch}
           setSearchInput={setSearchInput}
+
         />
       ) : (
         <div className="react-icons">
