@@ -104,8 +104,8 @@ export default function ProfileCard({ onEdit, currentUser }) {
         </div>
         <p className="about">
           {Object.values(currentProfile).length === 0
-            ? currentUser.about
-            : currentProfile?.about}
+            ? currentUser.aboutMe
+            : currentProfile?.aboutMe}
         </p>
       </div>
 
