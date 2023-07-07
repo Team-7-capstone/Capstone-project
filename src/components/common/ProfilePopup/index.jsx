@@ -20,7 +20,7 @@ const ProfilePopup = () => {
             
             <Button title='View Profile' 
             onClick={() => navigate('/profile', {
-                state: {id: currentUser?.userId}
+                state: {id: currentUser?.id}
             })} />
             <Button title='Log Out' onClick={onLogout}/>
         </div>
