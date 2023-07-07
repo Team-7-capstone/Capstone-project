@@ -28,6 +28,7 @@ export default function PostStatus({ currentUser }) {
     await postStatus(object);
     await setModalOpen(false);
     setIsEdit(false);
+    setPostImage("");
     await setStatus("");
   };
 
@@ -36,6 +37,7 @@ export default function PostStatus({ currentUser }) {
     setStatus(posts?.status);
     setCurrentPost(posts);
     setIsEdit(true);
+    setPostImage(posts?.postImage || "");
   };
 
   const updateStatus = () => {
@@ -82,6 +84,7 @@ export default function PostStatus({ currentUser }) {
         uploadPostImage={uploadPostImage}
         setPostImage={setPostImage}
         postImage={postImage}
+        currentPost={currentPost}
         setCurrentPost={setCurrentPost}
       />
 
