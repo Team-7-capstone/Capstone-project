@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ConnectionsComponent from "../components/ConnectionsComponent";
-import { onAuthStateChanged } from "@firebase/auth";
-import { auth } from "../firbaseConfig";
-import { useNavigate } from "react-router";
+import { onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../firebaseConfig";
 import Loader from "../components/common/Loader";
 
-const Connections = ({ currentUser }) => {
-  const [loading, setLoading] = useState(false);
+export default function Connections({ currentUser }) {
+  const [loading, setLoading] = useState(true);
   let navigate = useNavigate();
   useEffect(() => {
     onAuthStateChanged(auth, (res) => {
@@ -22,6 +22,4 @@ const Connections = ({ currentUser }) => {
   ) : (
     <ConnectionsComponent currentUser={currentUser} />
   );
-};
-
-export default Connections;
+}
