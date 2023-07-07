@@ -75,11 +75,28 @@ export default function Topbar() {
         <></>
       )}
 
-      <img className="linkedin-logo" src={LinkedinLogo} alt="LinkedinLogo" />
+
+      <img 
+        className="linkedin-logo" 
+        src={LinkedinLogo} 
+        alt="LinkedinLogo" />
       {isSearch ? (
         <SearchUsers
           setIsSearch={setIsSearch}
           setSearchInput={setSearchInput}
+      ></img>
+      <div className="react-icons">
+        <AiOutlineSearch size={30} className="react-icon" />
+        <AiOutlineHome
+          size={30}
+          className="react-icon"
+          onClick={() => goToRoute("/home")}
+        />
+        <AiOutlineUserSwitch
+          size={30}
+          className="react-icon"
+          onClick={() => goToRoute("/connections")}
+
         />
       ) : (
         <div className="react-icons">
