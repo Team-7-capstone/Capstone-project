@@ -4,8 +4,8 @@ import {
   getLikesByUser,
   postComment,
   getComments,
-} from "../../api/FirestoreAPI";
-import { getCurrentTimeStamp } from "../../helpers/useMoment";
+} from "../../../api/FirestoreAPI";
+import { getCurrentTimeStamp } from "../../../helpers/useMoment";
 import "./index.scss";
 import { AiOutlineHeart, AiFillHeart, AiOutlineComment } from "react-icons/ai";
 
@@ -24,7 +24,7 @@ export default function LikeButton({ userId, postId, currentUser }) {
   };
 
   const addComment = () => {
-    postComment(postId, comment, getCurrentTimeStamp("LLL"), currentUser?.name); 
+    postComment(postId, comment, getCurrentTimeStamp("LLL"), currentUser?.name);
     setComment("");
   };
 

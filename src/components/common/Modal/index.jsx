@@ -9,10 +9,13 @@ const ModalComponent = ({
   setStatus,
   status,
   sendStatus,
+  postImages,
   uploadPostImage,
   setPostImage,
   postImage,
   currentPost,
+  isEdit,
+  updateStatus,
 }) => {
   const [progress, setProgress] = useState(0);
   return (
@@ -24,13 +27,11 @@ const ModalComponent = ({
         onOk={() => {
           setStatus("");
           setModalOpen(false);
-          setStatus("");
           setPostImage("");
         }}
         onCancel={() => {
           setStatus("");
           setModalOpen(false);
-          setStatus("");
           setPostImage("");
         }}
         onOpen={() => {
@@ -40,12 +41,12 @@ const ModalComponent = ({
         }}
         footer={[
           <Button
-            onClick={sendStatus}
+            onClick={isEdit ? updateStatus : sendStatus}
             key="submit"
             type="primary"
             disabled={status.length > 0 ? false : true}
           >
-            Post
+             {isEdit ? 'Update' : 'Post'}
           </Button>,
         ]}
       >

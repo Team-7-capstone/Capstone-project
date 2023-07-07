@@ -1,14 +1,14 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Modal } from "antd";
 import { BsPencil, BsTrash } from "react-icons/bs";
+import { Button, Modal } from "antd";
 import {
   getCurrentUser,
   getAllUsers,
   deletePost,
   getConnections,
 } from "../../../api/FirestoreAPI";
-import LikeButton from "../../LikeButton";
+import LikeButton from "../LikeButton";
 import "./index.scss";
 
 export default function PostsCard({ posts, id, getEditData }) {
@@ -26,6 +26,11 @@ export default function PostsCard({ posts, id, getEditData }) {
     getConnections(currentUser.id, posts.userID, setIsConnected);
   }, [currentUser.id, posts.userID]);
 
+
+  // console.log(posts)
+  // console.log("this is user", currentUser.name)
+  // console.log("this is posts", posts)
+  
   return isConnected || currentUser.id === posts.userID ? (
     <div className="posts-card" key={id}>
       <div className="post-image-wrapper">
