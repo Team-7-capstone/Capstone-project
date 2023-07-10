@@ -1,4 +1,4 @@
-import { getStorage } from 'firebase/storage';
+import { getStorage } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -7,12 +7,13 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD3kF2eyRIg402_mJNg01CLALMPWs9GLhY",
-  authDomain: "linkedin-clone-42172.firebaseapp.com",
-  projectId: "linkedin-clone-42172",
-  storageBucket: "linkedin-clone-42172.appspot.com",
-  messagingSenderId: "1042970237711",
-  appId: "1:1042970237711:web:657f6540ab6c5d00ef3c7a",
+  apiKey: "AIzaSyDkUURuzEfhx6KbIZIeTqe51mclfUlfjsg",
+  authDomain: "myoosik-339ac.firebaseapp.com",
+  projectId: "myoosik-339ac",
+  storageBucket: "myoosik-339ac.appspot.com",
+  messagingSenderId: "656534455147",
+  appId: "1:656534455147:web:64770afa04edc163a6c22e",
+  measurementId: "G-GZ7JGDBYP4",
 };
 
 // Initialize Firebase
