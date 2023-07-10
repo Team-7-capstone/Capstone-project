@@ -42,12 +42,12 @@ export default function LikeButton({ userId, postId, currentUser }) {
       <div className="like-comment">
         <div className="likes-comment-inner" onClick={handleLike}>
           {liked ? (
-            <AiFillHeart size={30} color="#0a66c2" />
+            <AiFillHeart size={30} color="#ea6e3a" />
           ) : (
             <AiOutlineHeart size={30} />
           )}
 
-          <p className={liked ? "blue" : "black"}>Like</p>
+          <p className={liked ? "orange" : "black"}>Like</p>
         </div>
         <div
           className="likes-comment-inner"
@@ -56,7 +56,7 @@ export default function LikeButton({ userId, postId, currentUser }) {
           {
             <AiOutlineComment
               size={30}
-              color={showCommentBox ? "#0a66c2" : "#212121"}
+              color={showCommentBox ? "#ea6e3a" : "#212121"}
             />
           }
 

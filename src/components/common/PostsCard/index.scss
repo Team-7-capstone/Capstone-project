@@ -1,13 +1,15 @@
 .posts-card {
   width: 550px;
   min-height: auto;
-  background-color: whitesmoke;
+  background-color: #f3ede5;
   margin-top: 30px;
   border: 1px solid #b7b7b7;
   border-radius: 7px;
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
+  box-shadow: 2px 2px 8px #747272;
+
   .post-image-wrapper {
     display: flex;
     padding: 15px;

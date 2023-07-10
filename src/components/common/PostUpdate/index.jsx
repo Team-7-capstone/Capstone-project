@@ -54,7 +54,7 @@ export default function PostStatus({ currentUser }) {
       <div className="user-details">
         <img src={currentUser?.imageLink} alt="imageLink" />
         <p className="name">{currentUser?.name}</p>
-        <p className="headline">{currentUser?.headline}</p> 
+        <p className="headline">{currentUser?.headline}</p>
       </div>
       <div className="post-status">
         <img
@@ -69,7 +69,7 @@ export default function PostStatus({ currentUser }) {
             setIsEdit(false);
           }}
         >
-          Start a Post
+          Share a Note
         </button>
       </div>
 
