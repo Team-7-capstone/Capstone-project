@@ -78,6 +78,11 @@ export default function ProfileCard({ onEdit, currentUser }) {
                 ? currentUser.email
                 : currentProfile?.email}
             </p>
+            <p className="heading">
+              {Object.values(currentProfile).length === 0
+                ? currentUser.headline
+                : currentProfile?.headline}
+            </p>
             {currentUser.location || currentProfile?.location ? (
               <p className="location">
                 {Object.values(currentProfile).length === 0

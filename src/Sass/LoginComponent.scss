@@ -1,102 +1,102 @@
-$linkedinBlue1: #0072b1;
-$linkedinBlue2: #0073b1;
-$linkedinBlue3: #004c75;
+$Peach: #f8c499;
+$Orange1: #f8a25b;
+$Orange2: #fd8625;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .login-wrapper {
-    background-color: white !important;
-    height: 100vh;
+  background-color: white !important;
+  height: 100vh;
 
-    .login-wrapper-inner {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .heading {
-        font-family: system-ui;
-        text-align: center;
-        font-weight: 600;
-        color: rgba(0, 0, 0, 0.9);
-    }
-
-    .sub-heading {
-        margin-top: -3px;
-        font-family: system-ui;
-    }
-}
-
-
-.auth-inputs {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 300px;
-}
-
-.linkedinLogo {
-    width: 80px;
-}
-
-.hr-text {
-    line-height: 1em;
-    position: relative;
-    outline: 0;
-    border: 0;
-    color: black;
-    text-align: center;
-    height: 1.5em;
-    opacity: 0.5;
-
-    &:before {
-        content: "";
-        // use the linear-gradient for the fading effect
-        // use a solid background color for a solid bar
-        background: linear-gradient(to right, transparent, #818078, transparent);
-        position: absolute;
-        left: 0;
-        top: 50%;
-        width: 100%;
-        height: 1px;
-    }
-
-    &:after {
-        content: attr(data-content);
-        position: relative;
-        display: inline-block;
-        color: black;
-
-        padding: 0 0.5em;
-        line-height: 1.5em;
-        // this is really the only tricky part, you need to specify the background color of the container element...
-        color: #818078;
-        background-color: #fcfcfa;
-    }
-}
-
-.google-btn-container {
+  .login-wrapper-inner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
 
-    .google-btn {
-        width: 300px !important;
-    }
+  .heading {
+    font-family: "Poppins";
+    text-align: center;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+  }
 
-    .go-to-signup {
-        font-size: 18px;
-    }
+  .sub-heading {
+    margin-top: -3px;
+    font-family: "Poppins";
+  }
+}
 
-    .join-now {
-        color: $linkedinBlue1;
-        font-family: system-ui;
-        cursor: pointer;
-        font-size: 18px;
-    }
+.auth-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+}
+
+.linkedinLogo {
+  width: 80px;
+}
+
+.hr-text {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align: center;
+  height: 1.5em;
+  opacity: 0.5;
+
+  &:before {
+    content: "";
+    // use the linear-gradient for the fading effect
+    // use a solid background color for a solid bar
+    background: linear-gradient(to right, transparent, #818078, transparent);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+  }
+
+  &:after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+
+    padding: 0 0.5em;
+    line-height: 1.5em;
+    // this is really the only tricky part, you need to specify the background color of the container element...
+    color: #818078;
+    background-color: #fcfcfa;
+  }
+}
+
+.google-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .google-btn {
+    width: 300px !important;
+  }
+
+  .go-to-signup {
+    font-size: 18px;
+  }
+
+  .join-now {
+    color: $Orange2;
+    font-family: "Poppins";
+    cursor: pointer;
+    font-size: 18px;
+  }
 }
