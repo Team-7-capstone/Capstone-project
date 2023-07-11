@@ -1,6 +1,7 @@
 $Peach: #f8c499;
 $Orange1: #f8a25b;
 $Orange2: #fd8625;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
 body {
   margin: 0;
@@ -19,7 +20,7 @@ body {
   }
 
   .heading {
-    font-family: system-ui;
+    font-family: "Poppins";
     text-align: center;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.9);
@@ -27,7 +28,7 @@ body {
 
   .sub-heading {
     margin-top: -3px;
-    font-family: system-ui;
+    font-family: "Poppins";
   }
 }
 
@@ -94,7 +95,7 @@ body {
 
   .join-now {
     color: $Orange2;
-    font-family: system-ui;
+    font-family: "Poppins";
     cursor: pointer;
     font-size: 18px;
   }
