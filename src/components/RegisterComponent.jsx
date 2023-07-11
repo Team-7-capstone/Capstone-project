@@ -40,7 +40,7 @@ const RegisterComponent = () => {
       <ParticleEffect />
       <img src={LinkedinLogo} className="linkedinLogo" />
       <div className="login-wrapper-inner">
-        <h1 className="heading">Make the most of your professional life</h1>
+        <h1 className="heading">Make the most of your creative life</h1>
         <div className="auth-inputs">
           <input
             onChange={(event) =>

@@ -32,7 +32,7 @@ const LoginComponent = () => {
       <img src={LinkedinLogo} className="linkedinLogo" />
       <div className="login-wrapper-inner">
         <h1 className="heading">Sign in</h1>
-        <p className="sub-heading">Stay updated on you professional world</p>
+        <p className="sub-heading">Find your inspiration</p>
         <div className="auth-inputs">
           <input
             onChange={(event) =>

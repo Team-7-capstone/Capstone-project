@@ -68,7 +68,7 @@ const ParticleEffect = () => {
               enable: true,
               area: 800,
             },
-            value: 15,
+            value: 18,
           },
           opacity: {
             value: 0.5,
