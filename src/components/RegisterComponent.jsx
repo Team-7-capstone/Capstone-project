@@ -7,6 +7,7 @@ import "../Sass/LoginComponent.scss";
 import { toast } from "react-toastify";
 import { postUserData } from "../api/FirestoreAPI";
 import { getUniqueID } from "../helpers/getUniqueId";
+import ParticleEffect from "./Particle";
 
 const RegisterComponent = () => {
   let navigate = useNavigate();
@@ -36,6 +37,7 @@ const RegisterComponent = () => {
   };
   return (
     <div className="login-wrapper">
+      <ParticleEffect />
       <img src={LinkedinLogo} className="linkedinLogo" />
       <div className="login-wrapper-inner">
         <h1 className="heading">Make the most of your professional life</h1>
