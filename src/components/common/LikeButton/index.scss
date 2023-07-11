@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
 .like-container {
   display: flex;
   justify-content: center;
@@ -20,7 +22,7 @@
     padding-left: 10px;
     border-radius: 30px;
     border: 1px solid #737373;
-    font-family: system-ui;
+    font-family: "Poppins";
     color: #4b4b4b;
     font-size: 16px;
   }
@@ -32,7 +34,7 @@
   .add-comment-btn {
     width: 150px;
     height: 35px;
-    background-color: #0a66c2;
+    background-color: #ea6e3a;
     color: white;
     outline: none;
     border: none;
@@ -70,7 +72,7 @@
   .hr-line {
     margin-top: -17px;
     hr {
-      border-top: 1px solid rgb(181, 181, 181);
+      border-top: 1px solid #000;
     }
   }
   p {
@@ -85,8 +87,8 @@
     display: flex;
     align-items: center;
     margin-top: -20px;
-    .blue {
-      color: #0a66c2;
+    .orange {
+      color: #ea6e3a;
     }
 
     .black {

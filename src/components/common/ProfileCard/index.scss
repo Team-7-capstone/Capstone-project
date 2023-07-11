@@ -1,100 +1,14 @@
-// .profile-card {
-//   width: auto;
-//   height: auto;
-//   background-color: whitesmoke;
-//   margin: 30px;
-//   border-radius: 5px;
-//   padding: 20px;
-//   position: relative;
-
-//   .profile-info {
-//     display: flex;
-//     justify-content: space-between;
-
-//     .profile-image {
-//       width: 200px;
-//       height: 200px;
-//       object-fit: contain;
-//       border-radius: 50%;
-//       border: 2px solid #CACACA;
-//       padding: 5px;
-//       cursor: pointer;
-//     }
-
-//     .right-info {
-//       margin-top: 25px;
-//       margin-right: 20px;
-
-//       .college,
-//       .company {
-//         font-family: system-ui;
-//         color: rgba(0, 0, 0, 0.9);
-//         font-size: 14px;
-//         font-weight: 600;
-//         line-height: 30px;
-//       }
-
-//       .company {
-//         margin-top: -15px;
-//       }
-//     }
-//   }
-
-//   .website {
-//     color: #004C75 !important;
-//     -webkit-link: #004C75;
-//   }
-
-//   .skill-label {
-//     font-weight: 600;
-//   }
-
-//   .edit-btn {
-//     position: absolute;
-//     right: 20px;
-
-//     .edit-icon {
-//       cursor: pointer;
-//       padding: 10px;
-//     }
-
-//     .edit-icon:hover {
-//       background-color: rgb(197, 197, 197);
-//       padding: 10px;
-//       border-radius: 50%;
-//     }
-//   }
-
-//   .userName {
-//     font-family: system-ui;
-//     color: rgba(0, 0, 0, 0.9);
-//     font-weight: 600;
-//     font-size: 24px;
-//     margin-top: 10px;
-//   }
-
-//   .heading {
-//     margin-top: -25px;
-//     font-family: system-ui;
-//     font-size: 16px;
-//     font-weight: 400;
-//     color: rgba(0, 0, 0, 0.9);
-//     width: 320px;
-//     line-height: 20px;
-//   }
-// }
-
-
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
 .profile-card {
   width: auto;
   height: auto;
-  background-color: whitesmoke;
+  background-color: #eee1d0;
   margin: 30px;
   border-radius: 5px;
   padding: 20px;
   position: relative;
+  box-shadow: 3px 3px 15px #747272;
 
   .profile-info {
     display: flex;
@@ -117,7 +31,7 @@
 
       .college,
       .company {
-        font-family: system-ui;
+        font-family: "Poppins";
         color: rgba(0, 0, 0, 0.9);
         font-size: 14px;
         font-weight: 600;
@@ -156,7 +70,7 @@
   }
 
   .userName {
-    font-family: system-ui;
+    font-family: "Poppins";
     color: rgba(0, 0, 0, 0.9);
     font-weight: 600;
     font-size: 24px;
@@ -164,8 +78,8 @@
   }
 
   .heading {
-    margin-top: -25px;
-    font-family: system-ui;
+    margin-top: 15px;
+    font-family: "Poppins";
     font-size: 16px;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.9);
@@ -181,7 +95,7 @@
   margin: 30px;
   border-radius: 5px;
   padding: 1.2rem;
-  position: relative
+  position: relative;
 }
 
 .profile-info {
@@ -198,7 +112,7 @@
 }
 
 .username {
-  font-family: system-ui;
+  font-family: "Poppins";
   color: rgba(0, 0, 0, 0.9);
   font-weight: 600;
   font-size: 24px;
@@ -209,7 +123,7 @@
 .expertise,
 .intrest {
   margin-top: -25px;
-  font-family: system-ui;
+  font-family: "Poppins";
   color: rgba(0, 0, 0, 0.404);
   font-size: 1rem;
 }
@@ -227,7 +141,7 @@
 
 .heading {
   margin-top: -15px;
-  font-family: system-ui;
+  font-family: "Poppins";
   color: rgba(0, 0, 0, 0.575);
   font-size: 1rem;
   font-weight: 600px;
@@ -251,9 +165,8 @@
   font-size: 15px;
 }
 
-
 button {
-  font-family: system-ui;
+  font-family: "Poppins";
   background-color: rgb(216, 216, 216);
   cursor: pointer;
   padding: 5px 15px;

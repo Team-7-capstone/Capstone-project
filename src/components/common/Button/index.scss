@@ -1,17 +1,18 @@
-.common-btn{
-    width: 200px;
-    padding: 5px;
-    background-color: rgb(235, 233, 233); 
-    color: #0073b1;
-    border-radius: 15px;
-    border: 1px solid #0073b1de;
-    font-family: system-ui, serif;
-    font-weight: 600px;
-    margin: 7px 0px;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+.common-btn {
+  width: 200px;
+  padding: 5px;
+  background-color: rgb(221, 217, 217);
+  color: #000;
+  border-radius: 15px;
+  font-family: "Poppins", serif;
+  font-weight: 600px;
+  margin: 7px 0px;
 }
 
-.common-btn:hover{
-    transition: 0.3s;
-    background-color: #1a87c2;
-    color:  rgb(235, 233, 233);
+.common-btn:hover {
+  transition: 0.3s;
+  background-color: #ea6e3a;
+  color: rgb(235, 233, 233);
 }

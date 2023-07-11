@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
 .connections-main {
   display: grid;
   grid-template-columns: auto auto;
@@ -34,14 +36,14 @@
     }
 
     .name {
-      font-family: system-ui;
+      font-family: "Poppins";
       font-size: 16px;
       font-weight: 600;
     }
 
     .headline {
       margin-top: -15px;
-      font-family: system-ui;
+      font-family: "Poppins";
       font-size: 15px;
       font-weight: 400;
     }
@@ -57,7 +59,7 @@
       color: #004284;
       border: 1px solid #004284;
       font-size: 16px;
-      font-family: system-ui;
+      font-family: "Poppins";
       border-radius: 30px;
       font-weight: 600;
       display: flex;
