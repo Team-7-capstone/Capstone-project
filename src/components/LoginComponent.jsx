@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { LoginAPI, GoogleSignInAPI } from "../api/AuthAPI";
-import LinkedinLogo from "../assets/linkedinLogo.png";
+import MusicLogo from "../assets/musicLogo6.svg";
 import GoogleButton from "react-google-button";
 import "../Sass/LoginComponent.scss";
 import { toast } from "react-toastify";
@@ -27,7 +27,7 @@ const LoginComponent = () => {
   };
   return (
     <div className="login-wrapper">
-      <img src={LinkedinLogo} className="linkedinLogo" />
+      <img src={MusicLogo} className="musicLogo" />
       <div className="login-wrapper-inner">
         <h1 className="heading">Sign in</h1>
         <p className="sub-heading">Stay updated on you professional world</p>

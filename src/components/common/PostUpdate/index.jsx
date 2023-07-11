@@ -7,6 +7,9 @@ import { getUniqueID } from "../../../helpers/getUniqueId";
 import PostsCard from "../PostsCard";
 import "./index.scss";
 
+import imageLink from "../../../assets/user.png";
+
+
 export default function PostStatus({ currentUser }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [status, setStatus] = useState("");

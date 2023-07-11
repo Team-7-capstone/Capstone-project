@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { RegisterAPI, GoogleSignInAPI } from "../api/AuthAPI";
-import LinkedinLogo from "../assets/linkedinLogo.png";
+import MusicLogo from "../assets/musicLogo6.svg";
 import GoogleButton from "react-google-button";
 import "../Sass/LoginComponent.scss";
 import { toast } from "react-toastify";
 import { postUserData } from "../api/FirestoreAPI";
 import { getUniqueID } from "../helpers/getUniqueId";
+
+import imageLink from "../assets/user.png";
 
 const RegisterComponent = () => {
   let navigate = useNavigate();
@@ -19,9 +21,9 @@ const RegisterComponent = () => {
         userId: getUniqueID(),
         name: credentials.name,
         email: credentials.email,
-        imageLink:
-          "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+        imageLink: imageLink,
       });
+      
       navigate("/home");
       localStorage.setItem("userEmail", res.user.email);
     } catch (error) {
@@ -36,7 +38,7 @@ const RegisterComponent = () => {
   };
   return (
     <div className="login-wrapper">
-      <img src={LinkedinLogo} className="linkedinLogo" />
+      <img src={MusicLogo} className="musicLogo" />
       <div className="login-wrapper-inner">
         <h1 className="heading">Make the most of your professional life</h1>
         <div className="auth-inputs">
