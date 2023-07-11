@@ -1,10 +1,10 @@
 .posts-card {
   width: 550px;
   min-height: auto;
-  background-color: #f3ede5;
+  background-color: #f0e3d2;
   margin-top: 30px;
   border: 1px solid #b7b7b7;
-  border-radius: 7px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
@@ -69,7 +69,7 @@
 
   .action-icon:hover {
     color: #000000;
-    background-color: #b7b7b7;
+    background-color: #f8c499;
     padding: 10px;
     border-radius: 50%;
   }

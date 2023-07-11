@@ -82,7 +82,7 @@ const ProfileEdit = ({ onEdit, currentUser }) => {
 
         <label htmlFor="aboutMe">About</label>
         <textarea
-          className="common-textarea"
+          className="common-textArea"
           onChange={getInput}
           name="aboutMe"
           value={editInputs.aboutMe}

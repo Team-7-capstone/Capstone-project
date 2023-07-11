@@ -54,7 +54,6 @@ export default function PostStatus({ currentUser }) {
       <div className="user-details">
         <img src={currentUser?.imageLink} alt="imageLink" />
         <p className="name">{currentUser?.name}</p>
-        <p className="headline">{currentUser?.headline}</p>
       </div>
       <div className="post-status">
         <img

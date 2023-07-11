@@ -7,13 +7,14 @@
   .user-details {
     width: 550px;
     height: auto;
-    background-color: whitesmoke;
+    background-color: #1b3156;
     margin-top: 100px;
-    border: 1px solid #b7b7b7;
     border-radius: 7px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 2px 2px 8px #747272;
+
     img {
       width: 100px;
       height: 100px;
@@ -25,25 +26,28 @@
     }
 
     .name {
+      margin-top: 5px;
       font-weight: 600;
       font-family: system-ui;
+      color: whitesmoke;
     }
 
-    .headline {
-      font-family: system-ui;
-      margin-top: -15px;
-    }
+    // .headline {
+    //   font-family: system-ui;
+    //   margin-top: -15px;
+    // }
   }
   .post-status {
     width: 550px;
     height: 120px;
-    background-color: whitesmoke;
+    background-color: #f0e3d2;
     margin-top: 30px;
     border: 1px solid #b7b7b7;
-    border-radius: 7px;
+    border-radius: 15px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    box-shadow: 2px 2px 8px #747272;
 
     .post-image {
       width: 60px;
@@ -73,7 +77,6 @@
     }
   }
 }
-
 
 // .post-status-main {
 //   display: flex;

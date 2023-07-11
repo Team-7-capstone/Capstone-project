@@ -7,7 +7,8 @@ import {
 } from "../../../api/FirestoreAPI";
 import { getCurrentTimeStamp } from "../../../helpers/useMoment";
 import "./index.scss";
-import { AiOutlineHeart, AiFillHeart, AiOutlineComment } from "react-icons/ai";
+import { AiOutlineComment } from "react-icons/ai";
+import { PiMusicNote, PiMusicNoteFill } from "react-icons/pi";
 
 export default function LikeButton({ userId, postId, currentUser }) {
   const [likesCount, setLikesCount] = useState(0);
@@ -42,9 +43,9 @@ export default function LikeButton({ userId, postId, currentUser }) {
       <div className="like-comment">
         <div className="likes-comment-inner" onClick={handleLike}>
           {liked ? (
-            <AiFillHeart size={30} color="#ea6e3a" />
+            <PiMusicNoteFill size={25} color="#ea6e3a" />
           ) : (
-            <AiOutlineHeart size={30} />
+            <PiMusicNote size={25} />
           )}
 
           <p className={liked ? "orange" : "black"}>Like</p>
