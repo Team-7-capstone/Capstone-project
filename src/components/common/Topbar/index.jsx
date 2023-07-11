@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import LinkedinLogo from "../../../assets/linkedinLogo.png";
+import MusicLogo from "../../../assets/musicLogo5.svg";
 import user from "../../../assets/user.png";
 import SearchUsers from "../SearchUsers";
 import {
@@ -75,7 +75,7 @@ export default function Topbar({ currentUser }) {
         <></>
       )}
 
-      <img className="linkedin-logo" src={LinkedinLogo} alt="LinkedinLogo" />
+      <img className="linkedin-logo" src={MusicLogo} alt="MusicLogo" />
       {isSearch ? (
         <SearchUsers
           setIsSearch={setIsSearch}
