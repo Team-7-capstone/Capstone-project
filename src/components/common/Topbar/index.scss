@@ -1,7 +1,7 @@
 .topbar-main {
   width: 100%;
   height: 70px;
-  background-color: rgba(255, 255, 255, 0.87);
+  background-color: #0e1727;
   display: flex;
   align-items: center;
 }
@@ -12,18 +12,19 @@
 .react-icons {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 55%;
-  margin-left: 30px;
+  margin-left: 6rem;
 }
 
 .react-icon {
-  color: #787878;
+  color: whitesmoke;
   cursor: pointer;
 }
 
 .react-icon:hover {
-  color: black;
+  transition: 0.3s;
+  color: #ea6e3a;
 }
 
 .user-logo {

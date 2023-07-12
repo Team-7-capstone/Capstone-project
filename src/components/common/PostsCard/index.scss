@@ -1,13 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
 .posts-card {
   width: 550px;
   min-height: auto;
-  background-color: whitesmoke;
+  background-color: #f0e3d2;
   margin-top: 30px;
   border: 1px solid #b7b7b7;
-  border-radius: 7px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
+  box-shadow: 2px 2px 8px #747272;
+
   .post-image-wrapper {
     display: flex;
     padding: 15px;
@@ -22,7 +26,7 @@
   }
 
   .name {
-    font-family: system-ui, sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 18px;
     color: #212121;
     font-weight: 600;
@@ -30,14 +34,14 @@
     cursor: pointer;
   }
   .headline {
-    font-family: system-ui, sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 15px;
     color: rgba(0, 0, 0, 0.6);
     font-weight: 500;
     margin: 0px 0 0 0px;
   }
   .timestamp {
-    font-family: system-ui, sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 12px;
     color: rgba(0, 0, 0, 0.6);
     font-weight: 400;
@@ -67,7 +71,7 @@
 
   .action-icon:hover {
     color: #000000;
-    background-color: #b7b7b7;
+    background-color: #f8c499;
     padding: 10px;
     border-radius: 50%;
   }

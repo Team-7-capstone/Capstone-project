@@ -6,6 +6,7 @@ import { uploadPostImage } from "../../../api/ImageUpload";
 import { getUniqueID } from "../../../helpers/getUniqueId";
 import PostsCard from "../PostsCard";
 import "./index.scss";
+import { serverTimestamp } from "firebase/firestore";
 
 export default function PostStatus({ currentUser }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -19,6 +20,7 @@ export default function PostStatus({ currentUser }) {
     let object = {
       status: status,
       timeStamp: getCurrentTimeStamp("LLL"),
+      createdAt: serverTimestamp(),
       userEmail: currentUser.email,
       userName: currentUser.name,
       postID: getUniqueID(),
@@ -54,7 +56,6 @@ export default function PostStatus({ currentUser }) {
       <div className="user-details">
         <img src={currentUser?.imageLink} alt="imageLink" />
         <p className="name">{currentUser?.name}</p>
-        <p className="headline">{currentUser?.headline}</p> 
       </div>
       <div className="post-status">
         <img
@@ -69,7 +70,7 @@ export default function PostStatus({ currentUser }) {
             setIsEdit(false);
           }}
         >
-          Start a Post
+          Share a Note
         </button>
       </div>
 

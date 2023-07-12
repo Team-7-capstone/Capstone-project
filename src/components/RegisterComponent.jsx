@@ -15,7 +15,13 @@ const RegisterComponent = () => {
     try {
       let res = await RegisterAPI(credentials.email, credentials.password);
       toast.success("Account Created!");
-      postUserData({userId: getUniqueID() ,name: credentials.name, email: credentials.email, imageLink: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"})
+      postUserData({
+        userId: getUniqueID(),
+        name: credentials.name,
+        email: credentials.email,
+        imageLink:
+          "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+      });
       navigate("/home");
       localStorage.setItem("userEmail", res.user.email);
     } catch (error) {
@@ -66,7 +72,7 @@ const RegisterComponent = () => {
         <div className="google-btn-container">
           <GoogleButton className="google-btn" onClick={googleSignIn} />
           <p className="go-to-signup">
-            Already on LinkedIn?{" "}
+            Already on Myoosik?{" "}
             <span className="join-now" onClick={() => navigate("/")}>
               Log in
             </span>

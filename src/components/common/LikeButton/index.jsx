@@ -7,7 +7,9 @@ import {
 } from "../../../api/FirestoreAPI";
 import { getCurrentTimeStamp } from "../../../helpers/useMoment";
 import "./index.scss";
-import { AiOutlineHeart, AiFillHeart, AiOutlineComment } from "react-icons/ai";
+import { AiOutlineComment } from "react-icons/ai";
+import { PiMusicNote, PiMusicNoteFill } from "react-icons/pi";
+import { serverTimestamp } from "firebase/firestore";
 
 export default function LikeButton({ userId, postId, currentUser }) {
   const [likesCount, setLikesCount] = useState(0);
@@ -24,7 +26,13 @@ export default function LikeButton({ userId, postId, currentUser }) {
   };
 
   const addComment = () => {
-    postComment(postId, comment, getCurrentTimeStamp("LLL"), currentUser?.name);
+    postComment(
+      postId,
+      comment,
+      serverTimestamp(),
+      getCurrentTimeStamp("LLL"),
+      currentUser?.name
+    );
     setComment("");
   };
 
@@ -42,12 +50,12 @@ export default function LikeButton({ userId, postId, currentUser }) {
       <div className="like-comment">
         <div className="likes-comment-inner" onClick={handleLike}>
           {liked ? (
-            <AiFillHeart size={30} color="#0a66c2" />
+            <PiMusicNoteFill size={25} color="#ea6e3a" />
           ) : (
-            <AiOutlineHeart size={30} />
+            <PiMusicNote size={25} />
           )}
 
-          <p className={liked ? "blue" : "black"}>Like</p>
+          <p className={liked ? "orange" : "black"}>Like</p>
         </div>
         <div
           className="likes-comment-inner"
@@ -56,7 +64,7 @@ export default function LikeButton({ userId, postId, currentUser }) {
           {
             <AiOutlineComment
               size={30}
-              color={showCommentBox ? "#0a66c2" : "#212121"}
+              color={showCommentBox ? "#ea6e3a" : "#212121"}
             />
           }
 
@@ -82,7 +90,7 @@ export default function LikeButton({ userId, postId, currentUser }) {
                   <p className="name">{comment.name}</p>
                   <p className="comment">{comment.comment}</p>
                   <p className="timestamp">{comment.timeStamp}</p>
-                  {/* 
+                  {/*
                   <p>•</p>
                    */}
                 </div>
