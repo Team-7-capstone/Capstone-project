@@ -97,7 +97,7 @@ body {
   // z-index: 1;
 
   .google-btn {
-    width: 300px !important;
+    width: 300px;
   }
 
   .go-to-signup {
@@ -114,5 +114,43 @@ body {
 
   .join-now:hover {
     color: #ff7300;
+  }
+}
+
+@media (max-width: 420px) {
+  .linkedinLogo {
+    width: 60px;
+    position: absolute;
+    left: 100%;
+    margin-top: 9px;
+  }
+
+  .login-wrapper .login-wrapper-inner {
+    width: 100%;
+  }
+
+  .login-wrapper {
+    position: relative;
+    margin-right: 14rem;
+  }
+
+  .login-wrapper {
+    .login-wrapper-inner {
+      padding: 60px;
+    }
+  }
+
+  .common-input {
+    width: 70%;
+    margin: auto;
+  }
+
+  .login-btn,
+  .google-btn {
+    width: 200px !important;
+  }
+
+  .login-btn {
+    margin: auto;
   }
 }
