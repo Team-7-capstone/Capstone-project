@@ -7,7 +7,7 @@ import { getUniqueID } from "../../../helpers/getUniqueId";
 import PostsCard from "../PostsCard";
 import "./index.scss";
 
-import imageLink from "../../../assets/user.png";
+import imageLink from "../../../assets/blankprofile.svg";
 
 
 export default function PostStatus({ currentUser }) {

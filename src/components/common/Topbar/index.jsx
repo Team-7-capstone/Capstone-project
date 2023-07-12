@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MusicLogo from "../../../assets/musicLogo6.svg";
-import user from "../../../assets/user.png";
+import user from "../../../assets/blankprofile.svg";
 import SearchUsers from "../SearchUsers";
 import {
   AiOutlineSearch,

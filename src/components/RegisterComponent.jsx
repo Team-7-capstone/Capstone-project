@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { postUserData } from "../api/FirestoreAPI";
 import { getUniqueID } from "../helpers/getUniqueId";
 
-import imageLink from "../assets/user.png";
+import imageLink from "../assets/blankprofile.svg";
 
 const RegisterComponent = () => {
   let navigate = useNavigate();
@@ -23,7 +23,7 @@ const RegisterComponent = () => {
         email: credentials.email,
         imageLink: imageLink,
       });
-      
+
       navigate("/home");
       localStorage.setItem("userEmail", res.user.email);
     } catch (error) {
