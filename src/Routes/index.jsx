@@ -5,6 +5,7 @@ import Register from "../Pages/Register";
 import HomeLayout from "../layouts/HomeLayout";
 import ProfileLayout from "../layouts/ProfileLayout";
 import ConnectionLayout from "../layouts/ConnectionsLayout";
+import FriendsLayout from "../layouts/FriendsLayout";
 
 export const router = createBrowserRouter([
   {
@@ -26,5 +27,9 @@ export const router = createBrowserRouter([
   {
     path: "/connections",
     element: <ConnectionLayout />,
+  },
+  {
+    path: "/friends",
+    element: <FriendsLayout />,
   },
 ]);

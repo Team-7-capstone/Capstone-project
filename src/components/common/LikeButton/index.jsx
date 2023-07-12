@@ -9,6 +9,7 @@ import { getCurrentTimeStamp } from "../../../helpers/useMoment";
 import "./index.scss";
 import { AiOutlineComment } from "react-icons/ai";
 import { PiMusicNote, PiMusicNoteFill } from "react-icons/pi";
+import { serverTimestamp } from "firebase/firestore";
 
 export default function LikeButton({ userId, postId, currentUser }) {
   const [likesCount, setLikesCount] = useState(0);
@@ -25,7 +26,13 @@ export default function LikeButton({ userId, postId, currentUser }) {
   };
 
   const addComment = () => {
-    postComment(postId, comment, getCurrentTimeStamp("LLL"), currentUser?.name);
+    postComment(
+      postId,
+      comment,
+      serverTimestamp(),
+      getCurrentTimeStamp("LLL"),
+      currentUser?.name
+    );
     setComment("");
   };
 
@@ -83,7 +90,7 @@ export default function LikeButton({ userId, postId, currentUser }) {
                   <p className="name">{comment.name}</p>
                   <p className="comment">{comment.comment}</p>
                   <p className="timestamp">{comment.timeStamp}</p>
-                  {/* 
+                  {/*
                   <p>•</p>
                    */}
                 </div>
