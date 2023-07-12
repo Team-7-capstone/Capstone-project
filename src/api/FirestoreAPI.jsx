@@ -227,3 +227,28 @@ export const getConnections = (userId, targetId, setIsConnected) => {
     console.log(err);
   }
 };
+
+export const getSingleConnection = (userId, targetId, setConnection) => {
+  const singleConnection = query(
+    connectionRef,
+    where("userId", "==", userId),
+    where("targetId", "==", targetId)
+  );
+  onSnapshot(singleConnection, (response) => {
+    setConnection(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })[0]
+    );
+  });
+};
+
+export const deleteConnection = (id) => {
+  let docToDelete = doc(connectionRef, id);
+  try {
+    deleteDoc(docToDelete);
+    toast.success("Connection has been removed!");
+  } catch (err) {
+    console.log(err);
+  }
+};
