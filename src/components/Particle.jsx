@@ -8,7 +8,7 @@ const ParticleEffect = () => {
     await loadFull(engine);
   }, []);
 
-  const particlesLoaded = useCallback(async (container) => {
+  const particlesLoaded = useCallback(async () => {
     // await console.log(container);
   }, []);
 

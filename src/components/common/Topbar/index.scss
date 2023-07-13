@@ -78,3 +78,32 @@
     background-color: #bbbbbb;
   }
 }
+
+@media (max-width: 420px) {
+  .topbar-main {
+    width: 100%;
+  }
+
+  .linkedin-logo {
+    width: 50px;
+    margin-left: 20px;
+  }
+
+  .react-icons {
+    margin-left: 0;
+  }
+
+  .user-logo {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .react-icons {
+    margin-left: 20px;
+  }
+
+  .user-logo {
+    left: 18.5rem;
+  }
+}
