@@ -31,7 +31,7 @@ export const postStatus = (object) => {
 };
 
 export const getStatus = (setAllStatus) => {
-  const q = query(postsRef, orderBy("timeStamp"));
+  const q = query(postsRef, orderBy("createdAt", "desc"));
   onSnapshot(q, (response) => {
     setAllStatus(
       response.docs.map((docs) => {
@@ -138,11 +138,12 @@ export const getLikesByUser = (userId, postId, setLiked, setLikesCount) => {
   }
 };
 
-export const postComment = (postId, comment, timeStamp, name) => {
+export const postComment = (postId, comment, createdAt, timeStamp, name) => {
   try {
     addDoc(commentsRef, {
       postId,
       comment,
+      createdAt,
       timeStamp,
       name,
     });
@@ -153,7 +154,11 @@ export const postComment = (postId, comment, timeStamp, name) => {
 
 export const getComments = (postId, setComments) => {
   try {
-    let singlePostQuery = query(commentsRef, where("postId", "==", postId));
+    let singlePostQuery = query(
+      commentsRef,
+      where("postId", "==", postId),
+      orderBy("createdAt", "desc")
+    );
 
     onSnapshot(singlePostQuery, (response) => {
       const comments = response.docs.map((doc) => {
@@ -218,6 +223,31 @@ export const getConnections = (userId, targetId, setIsConnected) => {
 
       setIsConnected(isConnected);
     });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getSingleConnection = (userId, targetId, setConnection) => {
+  const singleConnection = query(
+    connectionRef,
+    where("userId", "==", userId),
+    where("targetId", "==", targetId)
+  );
+  onSnapshot(singleConnection, (response) => {
+    setConnection(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })[0]
+    );
+  });
+};
+
+export const deleteConnection = (id) => {
+  let docToDelete = doc(connectionRef, id);
+  try {
+    deleteDoc(docToDelete);
+    toast.success("Connection has been removed!");
   } catch (err) {
     console.log(err);
   }

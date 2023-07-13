@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MusicLogo from "../../../assets/musicLogo6.svg";
-import user from "../../../assets/blankprofile.svg";
+
 import SearchUsers from "../SearchUsers";
 import {
   AiOutlineSearch,
@@ -10,10 +9,12 @@ import {
   AiOutlineBell,
 } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import { BsBriefcase } from "react-icons/bs";
+import { GiThreeFriends } from "react-icons/gi";
 import { getAllUsers } from "../../../api/FirestoreAPI";
 import ProfilePopup from "../ProfilePopup";
 import "./index.scss";
+
+import MusicLogo from "../../../assets/musicLogo6.svg";
 
 export default function Topbar({ currentUser }) {
   const [popupVisible, setPopupVisible] = useState(false);
@@ -98,9 +99,9 @@ export default function Topbar({ currentUser }) {
             className="react-icon"
             onClick={() => goToRoute("/connections")}
           />
-          <BsBriefcase size={30} className="react-icon" />
-          {/* <AiOutlineMessage size={30} className="react-icon" /> */}
-          {/* <AiOutlineBell size={30} className="react-icon" /> */}
+          <GiThreeFriends size={30} className="react-icon" />
+          <AiOutlineMessage size={30} className="react-icon" />
+          <AiOutlineBell size={30} className="react-icon" />
         </div>
       )}
 

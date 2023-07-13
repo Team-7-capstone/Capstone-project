@@ -6,6 +6,7 @@ import { uploadPostImage } from "../../../api/ImageUpload";
 import { getUniqueID } from "../../../helpers/getUniqueId";
 import PostsCard from "../PostsCard";
 import "./index.scss";
+import { serverTimestamp } from "firebase/firestore";
 
 import imageLink from "../../../assets/blankprofile.svg";
 
@@ -22,6 +23,7 @@ export default function PostStatus({ currentUser }) {
     let object = {
       status: status,
       timeStamp: getCurrentTimeStamp("LLL"),
+      createdAt: serverTimestamp(),
       userEmail: currentUser.email,
       userName: currentUser.name,
       postID: getUniqueID(),

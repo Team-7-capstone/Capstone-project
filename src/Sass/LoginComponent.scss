@@ -12,17 +12,12 @@ body {
   background-color: rgba(255, 255, 255, 0.411) !important;
   height: 100vh;
 
-  .login-wrapper-inner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.199);
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(30px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 40px;
-  }
+    .login-wrapper-inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
   .heading {
     font-family: "Poppins";
@@ -43,6 +38,10 @@ body {
   gap: 10px;
   width: 300px;
   // z-index: 1;
+}
+
+.linkedinLogo {
+  width: 80px;
 }
 
 .hr-text {
@@ -86,7 +85,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // z-index: 1;
 
   .google-btn {
     width: 300px !important;
@@ -101,6 +99,5 @@ body {
     font-family: "Poppins";
     cursor: pointer;
     font-size: 18px;
-    // z-index: 1;
   }
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { RegisterAPI, GoogleSignInAPI } from "../api/AuthAPI";
-import MusicLogo from "../assets/musicLogo6.svg";
+import LinkedinLogo from "../assets/linkedinLogo.png";
 import GoogleButton from "react-google-button";
 import "../Sass/LoginComponent.scss";
 import { toast } from "react-toastify";
