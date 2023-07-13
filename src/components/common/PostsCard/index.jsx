@@ -26,6 +26,19 @@ export default function PostsCard({ posts, id, getEditData }) {
     getConnections(currentUser.id, posts.userID, setIsConnected);
   }, [currentUser.id, posts.userID]);
 
+  function makeLink(str) {
+    let array = str.split(" ");
+
+    return array
+      .map((element) => {
+        if (element.includes("https") || element.includes("http")) {
+          element = `<a href="${element}"> ${element} </a>`;
+        }
+        return element;
+      })
+      .join(" ");
+  }
+
   return isConnected || currentUser.id === posts.userID ? (
     <div className="posts-card" key={id}>
       <div className="post-image-wrapper">
@@ -82,7 +95,7 @@ export default function PostsCard({ posts, id, getEditData }) {
       )}
       <p
         className="status"
-        dangerouslySetInnerHTML={{ __html: posts.status }}
+        dangerouslySetInnerHTML={{ __html: makeLink(posts.status) }}
       ></p>
 
       <LikeButton
