@@ -32,7 +32,7 @@ export default function PostsCard({ posts, id, getEditData }) {
     return array
       .map((element) => {
         if (element.includes("https") || element.includes("http")) {
-          element = `<a href=${element}> ${element} </a>`;
+          element = `<a href="${element}"> ${element} </a>`;
         }
         return element;
       })
