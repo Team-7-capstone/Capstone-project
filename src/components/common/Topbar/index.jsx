@@ -6,8 +6,6 @@ import {
   AiOutlineSearch,
   AiOutlineHome,
   AiOutlineUserSwitch,
-  AiOutlineMessage,
-  AiOutlineBell,
 } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { BsBriefcase } from "react-icons/bs";
@@ -99,8 +97,6 @@ export default function Topbar({ currentUser }) {
             onClick={() => goToRoute("/connections")}
           />
           <BsBriefcase size={30} className="react-icon" />
-          {/* <AiOutlineMessage size={30} className="react-icon" /> */}
-          {/* <AiOutlineBell size={30} className="react-icon" /> */}
         </div>
       )}
 

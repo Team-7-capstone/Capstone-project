@@ -18,18 +18,9 @@ const ParticleEffect = () => {
       init={particlesInit}
       loaded={particlesLoaded}
       options={{
-        // background: {
-        //   //   color: {
-        //   //     value: "#f0e9e1",
-        //   //   },
-        // },
         fpsLimit: 60,
         interactivity: {
           events: {
-            onClick: {
-              enable: true,
-              mode: "push",
-            },
             onHover: {
               enable: true,
               mode: "repulse",
