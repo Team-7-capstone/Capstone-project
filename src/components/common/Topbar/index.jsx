@@ -97,7 +97,7 @@ export default function Topbar({ currentUser }) {
             onClick={() => goToRoute("/connections")}
           />
 
-          <BsBriefcase size={30} className="react-icon" />
+          {/* <BsBriefcase size={30} className="react-icon" /> */}
 
           <GiThreeFriends
             size={30}
