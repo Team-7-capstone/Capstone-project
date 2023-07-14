@@ -7,6 +7,7 @@ import { getUniqueID } from "../../../helpers/getUniqueId";
 import PostsCard from "../PostsCard";
 import "./index.scss";
 import { serverTimestamp } from "firebase/firestore";
+import imageLink from "../../../assets/blankprofile.svg";
 
 export default function PostStatus({ currentUser }) {
   const [modalOpen, setModalOpen] = useState(false);
