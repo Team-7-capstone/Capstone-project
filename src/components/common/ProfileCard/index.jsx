@@ -94,15 +94,16 @@ export default function ProfileCard({ onEdit, currentUser }) {
                 <></>
               )}
 
+            <div>
+              {/* <img src="../../../assets/play2.png" alt="Play"/> */}
+              <button id="music-button">Click to Listen to my Music</button>
+              {/* player will go here */}
+            </div>
             
             </div>
 
             
             <div className="right-info">
-            <div>
-              <button id="music-button">Click to Listen to my Music</button>
-              {/* player will go here */}
-            </div>
             <p className="expertise">
               {Object.values(currentProfile).length === 0
                 ? `Skills: ${currentUser.expertise}`
