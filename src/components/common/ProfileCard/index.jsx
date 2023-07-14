@@ -102,8 +102,8 @@ export default function ProfileCard({ onEdit, currentUser }) {
             </p>
             <p className="intrest">
               {Object.values(currentProfile).length === 0
-                ? `interests: ${currentUser.intrest}`
-                : `interests: ${currentProfile?.intrest}`}
+                ? `Interests: ${currentUser.intrest}`
+                : `Interests: ${currentProfile?.intrest}`}
             </p>
           </div>
         </div>

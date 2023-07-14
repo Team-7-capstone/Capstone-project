@@ -9,14 +9,22 @@ body {
 }
 
 .login-wrapper {
-  background-color: white !important;
   height: 100vh;
+  position: relative;
 
   .login-wrapper-inner {
+    width: 30%;
+    position: absolute;
+    top: 20%;
+    left: 35%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    background-color: #ebac7994;
+    backdrop-filter: 50px;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 3px 3px 15px;
   }
 
   .heading {
@@ -29,6 +37,7 @@ body {
   .sub-heading {
     margin-top: -3px;
     font-family: "Poppins";
+    text-align: center;
   }
 }
 
@@ -37,6 +46,7 @@ body {
   flex-direction: column;
   gap: 10px;
   width: 300px;
+  // z-index: 1;
 }
 
 .linkedinLogo {
@@ -84,9 +94,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  // z-index: 1;
 
   .google-btn {
-    width: 300px !important;
+    width: 300px;
   }
 
   .go-to-signup {
@@ -98,5 +109,67 @@ body {
     font-family: "Poppins";
     cursor: pointer;
     font-size: 18px;
+    // z-index: 1;
+  }
+
+  .join-now:hover {
+    color: #ff7300;
+  }
+}
+
+@media (max-width: 420px) {
+  .linkedinLogo {
+    width: 60px;
+    position: absolute;
+    left: 99%;
+    margin-top: 9px;
+  }
+
+  .login-wrapper .login-wrapper-inner {
+    width: 100%;
+  }
+
+  .login-wrapper {
+    position: relative;
+    margin-left: -3px;
+    margin-right: 14.3rem;
+  }
+
+  .login-wrapper {
+    .login-wrapper-inner {
+      padding: 60px;
+    }
+  }
+
+  .common-input {
+    width: 70%;
+    margin: auto;
+  }
+
+  .login-btn,
+  .google-btn {
+    width: 200px !important;
+  }
+
+  .login-btn {
+    margin: auto;
+  }
+
+  .heading:nth-child(1) {
+    width: 85%;
+  }
+}
+
+@media (max-width: 320px) {
+  .common-input {
+    width: 60%;
+  }
+
+  .login-wrapper {
+    left: 20px;
+  }
+
+  .linkedinLogo {
+    margin-left: 25px;
   }
 }

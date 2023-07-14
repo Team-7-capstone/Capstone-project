@@ -70,7 +70,7 @@ export default function PostStatus({ currentUser }) {
             setIsEdit(false);
           }}
         >
-          Share a Note
+          Compose a staff
         </button>
       </div>
 

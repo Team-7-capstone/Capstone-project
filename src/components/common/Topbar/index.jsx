@@ -6,8 +6,6 @@ import {
   AiOutlineSearch,
   AiOutlineHome,
   AiOutlineUserSwitch,
-  AiOutlineMessage,
-  AiOutlineBell,
 } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { GiThreeFriends } from "react-icons/gi";
@@ -98,13 +96,15 @@ export default function Topbar({ currentUser }) {
             className="react-icon"
             onClick={() => goToRoute("/connections")}
           />
+
+          {/* <BsBriefcase size={30} className="react-icon" /> */}
+
           <GiThreeFriends
             size={30}
             className="react-icon"
             onClick={() => goToRoute("/friends")}
           />
-          {/* <AiOutlineMessage size={30} className="react-icon" /> */}
-          {/* <AiOutlineBell size={30} className="react-icon" /> */}
+
         </div>
       )}
 

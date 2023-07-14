@@ -5,6 +5,7 @@ import LinkedinLogo from "../assets/linkedinLogo.png";
 import GoogleButton from "react-google-button";
 import "../Sass/LoginComponent.scss";
 import { toast } from "react-toastify";
+import ParticleEffect from "./Particle";
 
 const LoginComponent = () => {
   let navigate = useNavigate();
@@ -27,10 +28,11 @@ const LoginComponent = () => {
   };
   return (
     <div className="login-wrapper">
+      <ParticleEffect />
       <img src={LinkedinLogo} className="linkedinLogo" />
       <div className="login-wrapper-inner">
         <h1 className="heading">Sign in</h1>
-        <p className="sub-heading">Stay updated on you professional world</p>
+        <p className="sub-heading">Find your inspiration</p>
         <div className="auth-inputs">
           <input
             onChange={(event) =>

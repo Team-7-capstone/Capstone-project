@@ -27,6 +27,16 @@
   margin-top: -15px;
   text-align: center;
 }
-.popup-option {
-  cursor: pointer;
+
+@media (max-width: 420px) {
+  .popup-card {
+    width: 120px;
+    height: 60px;
+  }
+
+  .name {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
 }
