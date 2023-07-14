@@ -8,7 +8,7 @@ import {
   AiOutlineUserSwitch,
 } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import { BsBriefcase } from "react-icons/bs";
+import { GiThreeFriends } from "react-icons/gi";
 import { getAllUsers } from "../../../api/FirestoreAPI";
 import ProfilePopup from "../ProfilePopup";
 import "./index.scss";
@@ -96,7 +96,15 @@ export default function Topbar({ currentUser }) {
             className="react-icon"
             onClick={() => goToRoute("/connections")}
           />
+
           <BsBriefcase size={30} className="react-icon" />
+
+          <GiThreeFriends
+            size={30}
+            className="react-icon"
+            onClick={() => goToRoute("/friends")}
+          />
+
         </div>
       )}
 
