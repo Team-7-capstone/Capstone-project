@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { RegisterAPI, GoogleSignInAPI } from "../api/AuthAPI";
-import LinkedinLogo from "../assets/linkedinLogo.png";
+import MusicLogo from "../assets/musicLogo6.svg";
 import GoogleButton from "react-google-button";
 import "../Sass/LoginComponent.scss";
 import { toast } from "react-toastify";
@@ -38,7 +38,7 @@ const RegisterComponent = () => {
   return (
     <div className="login-wrapper">
       <ParticleEffect />
-      <img src={LinkedinLogo} className="linkedinLogo" />
+      <img src={MusicLogo} className="musicLogo" />
       <div className="login-wrapper-inner">
         <h1 className="heading">Make the most of your creative life</h1>
         <div className="auth-inputs">
