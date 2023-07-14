@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import FileUploadModal from "../FileUploadModal";
 import { uploadImage as uploadImageAPI } from "../../../api/ImageUpload";
 import "./index.scss";
+import AudioPlayer from "../AudioPlayer";
 
 export default function ProfileCard({ onEdit, currentUser }) {
   let location = useLocation();
@@ -98,6 +99,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
             <div className="music-button">
               {/* <img src="../../../assets/play2.png" alt="Play"/> */}
               <button id="music-button">Click to Listen to my Music</button>
+              <AudioPlayer id="audio-player"/>
               {/* player will go here */}
             </div>
             
