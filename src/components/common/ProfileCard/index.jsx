@@ -57,7 +57,10 @@ export default function ProfileCard({ onEdit, currentUser }) {
           <></>
         )}
         <div className="profile-info">
-          <div>
+
+          <div className="top">
+
+          <div className="left">
             <img
               className="profile-image"
               onClick={() => setModalOpen(true)}
@@ -68,33 +71,39 @@ export default function ProfileCard({ onEdit, currentUser }) {
               }
               alt="profile-image"
             />
+
             <h3 className="userName">
               {Object.values(currentProfile).length === 0
                 ? currentUser.name
                 : currentProfile?.name}
             </h3>
+
             <p className="userEmail">
               {Object.values(currentProfile).length === 0
                 ? currentUser.email
                 : currentProfile?.email}
             </p>
-            <p className="heading">
-              {Object.values(currentProfile).length === 0
-                ? currentUser.headline
-                : currentProfile?.headline}
-            </p>
-            {currentUser.location || currentProfile?.location ? (
-              <p className="location">
-                {Object.values(currentProfile).length === 0
-                  ? `${currentUser.location}`
-                  : `${currentProfile?.location}`}
-              </p>
-            ) : (
-              <></>
-            )}
-          </div>
 
-          <div className="right-info">
+            {currentUser.location || currentProfile?.location ? (
+                <p className="location">
+                  {Object.values(currentProfile).length === 0
+                    ? `${currentUser.location}`
+                    : `${currentProfile?.location}`}
+                </p>
+              ) : (
+                <></>
+              )}
+            </div>
+
+            <div className="music-button">
+              {/* <img src="../../../assets/play2.png" alt="Play"/> */}
+              <button id="music-button">Click to Listen to my Music</button>
+              {/* player will go here */}
+            </div>
+            
+
+            
+            <div className="right-info">
             <p className="expertise">
               {Object.values(currentProfile).length === 0
                 ? `Skills: ${currentUser.expertise}`
@@ -106,11 +115,23 @@ export default function ProfileCard({ onEdit, currentUser }) {
                 : `Interests: ${currentProfile?.intrest}`}
             </p>
           </div>
-        </div>
+          
+          </div>
+
+            <p className="heading">
+              {Object.values(currentProfile).length === 0
+                ? currentUser.headline
+                : currentProfile?.headline}
+            </p>
+
+          </div>
+          
+
+
         <p className="about">
           {Object.values(currentProfile).length === 0
-            ? currentUser.aboutMe
-            : currentProfile?.aboutMe}
+            ? `About: ${currentUser.aboutMe}`
+            : `About: ${currentProfile?.aboutMe}`}
         </p>
       </div>
 

@@ -40,7 +40,7 @@ const ProfileEdit = ({ onEdit, currentUser }) => {
           placeholder="Name"
         />
 
-        <label htmlFor="headline">Bio</label>
+        <label htmlFor="headline">Headline</label>
         <input
           onChange={getInput}
           className="common-input"
@@ -48,6 +48,7 @@ const ProfileEdit = ({ onEdit, currentUser }) => {
           value={editInputs.headline}
           name="headline"
           placeholder="Headline"
+          maxlength="50"
         />
 
         <label htmlFor="location">Location</label>
