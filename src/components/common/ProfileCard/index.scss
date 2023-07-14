@@ -3,6 +3,8 @@
 
 .top{
   background-color: #0e1727;
+
+  // background-image: url(../../../assets/colors.png);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -10,7 +12,9 @@
 }
 
 .left{
-  background-color: #eee1d0;
+  // background-color: #eee1d0;
+  background-color: #0e1727;
+  margin-left: 20px; 
 }
 
 .profile-card {
@@ -44,14 +48,23 @@
       margin: 20px; 
     }
 
+    .music-button {
+      display: flex;
+      align-items: center;
+    }
+
     .right-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
       width: 30%;
       margin: 25px;
       margin-right: 20px;
-      border: 2px solid #cacaca;
-      padding: 20px; 
+      // border: 2px solid #cacaca;
+      // padding: 20px; 
       border-radius: 5px;
-      background-color: #eee1d0;
+      // background-color: #eee1d0;
+
 
       .college,
       .company {
@@ -84,10 +97,12 @@
     .edit-icon {
       cursor: pointer;
       padding: 10px;
+      background-color: rgb(197, 197, 197);
+      border-radius: 50%;
     }
 
     .edit-icon:hover {
-      background-color: rgb(197, 197, 197);
+      background-color: white;
       padding: 10px;
       border-radius: 50%;
     }
@@ -95,7 +110,8 @@
 
   .userName {
     font-family: "Poppins";
-    color: rgba(0, 0, 0, 0.9);
+    // color: rgba(0, 0, 0, 0.9);
+    color: white;
     font-weight: 600;
     font-size: 24px;
     margin-top: 10px;
@@ -155,7 +171,8 @@
   // border-radius: 5px;
   margin-top: -10px;
   font-family: "Poppins";
-  color: rgba(0, 0, 0, 0.404);
+  // color: rgba(0, 0, 0, 0.404);
+  color: white;
   font-size: 1rem;
 
 }
@@ -165,14 +182,15 @@
 .intrest {
   margin-top: -25px;
   font-family: "Poppins";
-  color: rgba(0, 0, 0, 0.404);
+  // color: rgba(0, 0, 0, 0.404);
+  color: white;
   font-size: 1rem;
 }
 
 .expertise,
 .intrest {
   font-size: 1.1rem;
-  color: rgba(0, 0, 0, 0.63);
+  // color: rgba(0, 0, 0, 0.63);
   border: 2px solid #cacaca;
   padding: 20px; 
   border-radius: 5px;

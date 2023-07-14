@@ -93,14 +93,14 @@ export default function ProfileCard({ onEdit, currentUser }) {
               ) : (
                 <></>
               )}
+            </div>
 
-            <div>
+            <div className="music-button">
               {/* <img src="../../../assets/play2.png" alt="Play"/> */}
               <button id="music-button">Click to Listen to my Music</button>
               {/* player will go here */}
             </div>
             
-            </div>
 
             
             <div className="right-info">
