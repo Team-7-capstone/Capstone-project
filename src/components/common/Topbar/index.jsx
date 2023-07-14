@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import LinkedinLogo from "../../../assets/linkedinLogo.png";
+import MusicLogo from "../../../assets/musicLogo6.svg";
 import user from "../../../assets/user.png";
 import SearchUsers from "../SearchUsers";
 import {
   AiOutlineSearch,
   AiOutlineHome,
   AiOutlineUserSwitch,
+  AiOutlineMessage,
+  AiOutlineBell,
 } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { GiThreeFriends } from "react-icons/gi";
@@ -73,7 +75,7 @@ export default function Topbar({ currentUser }) {
         <></>
       )}
 
-      <img className="linkedin-logo" src={LinkedinLogo} alt="LinkedinLogo" />
+<img className="musicLogo" src={MusicLogo} alt="MusicLogo" />
       {isSearch ? (
         <SearchUsers
           setIsSearch={setIsSearch}
