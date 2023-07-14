@@ -85,3 +85,9 @@
 .modal {
   margin-top: 30px;
 }
+
+@media (max-width: 420px) {
+  .posts-card {
+    width: 320px;
+  }
+}

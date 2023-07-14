@@ -43,7 +43,7 @@ export default function LikeButton({ userId, postId, currentUser }) {
 
   return (
     <div className="like-container">
-      <p>{likesCount} People Like this Post</p>
+      <p>{likesCount} People Noted this Post</p>
       <div className="hr-line">
         <hr />
       </div>
@@ -55,7 +55,7 @@ export default function LikeButton({ userId, postId, currentUser }) {
             <PiMusicNote size={25} />
           )}
 
-          <p className={liked ? "orange" : "black"}>Like</p>
+          <p className={liked ? "orange" : "black"}>Note</p>
         </div>
         <div
           className="likes-comment-inner"

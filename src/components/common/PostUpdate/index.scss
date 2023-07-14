@@ -73,3 +73,21 @@
     }
   }
 }
+
+@media (max-width: 420px) {
+  .post-status-main {
+    width: 50%;
+    margin: auto;
+    .user-details {
+      width: 100%;
+    }
+
+    .post-status {
+      width: 310px;
+      padding: 0px 8px;
+      .open-post-modal {
+        margin-left: 10px;
+      }
+    }
+  }
+}
