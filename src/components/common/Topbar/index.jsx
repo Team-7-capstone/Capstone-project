@@ -15,6 +15,11 @@ import { getAllUsers } from "../../../api/FirestoreAPI";
 import ProfilePopup from "../ProfilePopup";
 import "./index.scss";
 
+import MyoozikBlue from "../../../assets/myoozik-blue.svg";
+import MyoozikOrange from "../../../assets/myoozik-orange.svg";
+import MyoozikBlue2 from "../../../assets/myoozik2-blue.svg";
+import MyoozikOrange2 from "../../../assets/myoozik2-orange.svg"
+
 export default function Topbar({ currentUser }) {
   const [popupVisible, setPopupVisible] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
@@ -75,7 +80,8 @@ export default function Topbar({ currentUser }) {
         <></>
       )}
 
-<img className="musicLogo" src={MusicLogo} alt="MusicLogo" />
+    <img className="musicLogo" src={MusicLogo} alt="MusicLogo" />
+
       {isSearch ? (
         <SearchUsers
           setIsSearch={setIsSearch}
@@ -93,11 +99,15 @@ export default function Topbar({ currentUser }) {
             className="react-icon"
             onClick={() => goToRoute("/home")}
           />
+
+          <img className="myoozik-topbar" src={MyoozikOrange} alt="Myoozik" />
+
           <AiOutlineUserSwitch
             size={30}
             className="react-icon"
             onClick={() => goToRoute("/connections")}
           />
+
 
           {/* <BsBriefcase size={30} className="react-icon" /> */}
 
