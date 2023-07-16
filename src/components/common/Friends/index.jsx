@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
+import { TbMusicOff } from "react-icons/tb";
 import {
   getConnections,
   deleteConnection,
@@ -29,7 +30,7 @@ export default function Friends({ user, currentUser }) {
           deleteConnection(connection.id);
         }}
       >
-        <AiOutlineUsergroupAdd size={20} />
+        <TbMusicOff size={20} />
         Disconnect
       </button>
     </div>
