@@ -2,22 +2,28 @@
 
 .connections-main {
   display: grid;
-  grid-template-columns: auto auto;
-  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
   justify-content: center;
   align-items: center;
   padding: 10px;
   text-align: center;
-  margin: 30px;
+  margin: 10px;
   border: 1px solid #bbbbbb;
-  background-color: white;
+  background-color: #0e1727;
   border-radius: 10px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+
   .grid-child {
     border: 1px solid #bbbbbb;
     width: 250px;
     height: 330px;
     margin: 10px;
+    margin-right: 3px;
     padding: 10px;
+    background-color: #e0d7cc;
     display: flex;
 
     align-items: center;
@@ -37,7 +43,7 @@
 
     .name {
       font-family: "Poppins";
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 600;
     }
 
@@ -56,7 +62,7 @@
       bottom: 10px;
       cursor: pointer;
       background-color: white;
-      color: #004284;
+      color: #f37915;
       border: 1px solid #004284;
       font-size: 16px;
       font-family: "Poppins";
@@ -69,8 +75,54 @@
     }
 
     button:hover {
-      border: 2px solid #004284;
-      background-color: #bbdefb;
+      background-color: #f37915;
+      color: whitesmoke;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .connections-main {
+    grid-template-columns: auto auto;
+    margin-top: 0;
+    width: 100%;
+    .grid-child {
+      width: auto;
+      height: 285px;
+      .name {
+        margin-bottom: 10px;
+        font-size: 15px;
+      }
+      .headline {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .connections-main {
+    display: flex;
+    flex-direction: column;
+    .grid-child {
+      width: 285px;
+      height: 285px;
+      .name {
+        margin-bottom: 10px;
+        font-size: 15px;
+      }
+      .headline {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .connections-main {
+    grid-template-columns: repeat(2, 1fr);
+    .grid-child {
+      margin-left: 25px;
     }
   }
 }

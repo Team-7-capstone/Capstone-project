@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { AiOutlineUsergroupAdd } from "react-icons/ai";
+import { PiMusicNotesPlus } from "react-icons/pi";
 import { getConnections } from "../../../api/FirestoreAPI";
 
 export default function ConnectedUsers({ user, getCurrentUser, currentUser }) {
@@ -22,8 +22,8 @@ export default function ConnectedUsers({ user, getCurrentUser, currentUser }) {
           getCurrentUser(user.id);
         }}
       >
-        <AiOutlineUsergroupAdd size={20} />
-        Connect
+        <PiMusicNotesPlus size={20} />
+        Harmonize
       </button>
     </div>
   );
