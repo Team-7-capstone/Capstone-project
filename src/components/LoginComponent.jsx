@@ -58,7 +58,7 @@ const LoginComponent = () => {
         <div className="google-btn-container">
           <GoogleButton className="google-btn" onClick={googleSignIn} />
           <p className="go-to-signup">
-            New to Myoosik?{" "}
+            New to myoozik?{" "}
             <span className="join-now" onClick={() => navigate("/register")}>
               Join Now
             </span>
