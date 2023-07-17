@@ -6,10 +6,10 @@ import { useLocation } from "react-router-dom";
 import FileUploadModal from "../FileUploadModal";
 import { uploadImage as uploadImageAPI } from "../../../api/ImageUpload";
 import "./index.scss";
-import AudioPlayer from "../react-audio-player/src/components/AudioPlayer";
+import AudioPlayer from "../AudioPlayer";
 import ReactDOM from "react-dom/client";
-import "../react-audio-player/src/styles/index.css";
-import "/Users/ivanleon/Desktop/Full Stack Academy/SeniorPhase/Capstone/Capstone-project/src/components/common/react-audio-player/src/styles/customize-progress-bar.css";
+import "../styles/index.css";
+import "../styles/customize-progress-bar.css";
 
 export default function ProfileCard({ onEdit, currentUser }) {
   // const [audioFiles, setAudioFiles] = useState([]); // part of individual audioFiles
