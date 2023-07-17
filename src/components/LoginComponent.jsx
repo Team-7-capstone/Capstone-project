@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { LoginAPI, GoogleSignInAPI } from "../api/AuthAPI";
 import MusicLogo from "../assets/musicLogo6.svg";
+import MyoozikBlue from "../assets/myoozik-blue.svg";
+import MyoozikOrange from "../assets/myoozik-orange.svg";
+import MyoozikBlue2 from "../assets/myoozik2-blue.svg";
+import MyoozikOrange2 from "../assets/myoozik2-orange.svg"
 import GoogleButton from "react-google-button";
 import "../Sass/LoginComponent.scss";
 import { toast } from "react-toastify";
@@ -30,6 +34,11 @@ const LoginComponent = () => {
     <div className="login-wrapper">
       <ParticleEffect />
       <img src={MusicLogo} className="musicLogo" />
+
+      <div className="myoozik-wrapper">
+        <img src={MyoozikBlue} className="myoozik" />
+      </div>
+
       <div className="login-wrapper-inner">
         <h1 className="heading">Sign in</h1>
         <p className="sub-heading">Find your inspiration</p>
