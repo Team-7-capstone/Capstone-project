@@ -6,8 +6,13 @@ import { useLocation } from "react-router-dom";
 import FileUploadModal from "../FileUploadModal";
 import { uploadImage as uploadImageAPI } from "../../../api/ImageUpload";
 import "./index.scss";
+import AudioPlayer from "../react-audio-player/src/components/AudioPlayer";
+import ReactDOM from "react-dom/client";
+import "../react-audio-player/src/styles/index.css";
+import "/Users/ivanleon/Desktop/Full Stack Academy/SeniorPhase/Capstone/Capstone-project/src/components/common/react-audio-player/src/styles/customize-progress-bar.css";
 
 export default function ProfileCard({ onEdit, currentUser }) {
+  // const [audioFiles, setAudioFiles] = useState([]); // part of individual audioFiles
   let location = useLocation();
   const [allStatuses, setAllStatus] = useState([]);
   const [currentProfile, setCurrentProfile] = useState({});
@@ -57,34 +62,32 @@ export default function ProfileCard({ onEdit, currentUser }) {
           <></>
         )}
         <div className="profile-info">
-
           <div className="top">
+            <div className="left">
+              <img
+                className="profile-image"
+                onClick={() => setModalOpen(true)}
+                src={
+                  Object.values(currentProfile).length === 0
+                    ? currentUser.imageLink
+                    : currentProfile?.imageLink
+                }
+                alt="profile-image"
+              />
 
-          <div className="left">
-            <img
-              className="profile-image"
-              onClick={() => setModalOpen(true)}
-              src={
-                Object.values(currentProfile).length === 0
-                  ? currentUser.imageLink
-                  : currentProfile?.imageLink
-              }
-              alt="profile-image"
-            />
+              <h3 className="userName">
+                {Object.values(currentProfile).length === 0
+                  ? currentUser.name
+                  : currentProfile?.name}
+              </h3>
 
-            <h3 className="userName">
-              {Object.values(currentProfile).length === 0
-                ? currentUser.name
-                : currentProfile?.name}
-            </h3>
+              <p className="userEmail">
+                {Object.values(currentProfile).length === 0
+                  ? currentUser.email
+                  : currentProfile?.email}
+              </p>
 
-            <p className="userEmail">
-              {Object.values(currentProfile).length === 0
-                ? currentUser.email
-                : currentProfile?.email}
-            </p>
-
-            {currentUser.location || currentProfile?.location ? (
+              {currentUser.location || currentProfile?.location ? (
                 <p className="location">
                   {Object.values(currentProfile).length === 0
                     ? `${currentUser.location}`
@@ -95,38 +98,39 @@ export default function ProfileCard({ onEdit, currentUser }) {
               )}
             </div>
 
-            <div className="music-button">
-              {/* <img src="../../../assets/play2.png" alt="Play"/> */}
-              <button id="music-button">Click to Listen to my Music</button>
-              {/* player will go here */}
-            </div>
             
+            {/* <div className="music-button">
+            
+              <AudioPlayer />
+            </div> */}
+            {/* This is for individual audioPlayer */}
+            {/* <div className="music-button">
+              {audioFiles.map((audioFile) => (
+                <AudioPlayer key={audioFile.name} audioUrl={audioFile.url} />
+              ))}
+            </div> */}
+            {/* This is for individual audioPlayer */}
 
-            
             <div className="right-info">
-            <p className="expertise">
-              {Object.values(currentProfile).length === 0
-                ? `Skills: ${currentUser.expertise}`
-                : `Skills: ${currentProfile?.expertise}`}
-            </p>
-            <p className="intrest">
-              {Object.values(currentProfile).length === 0
-                ? `Interests: ${currentUser.intrest}`
-                : `Interests: ${currentProfile?.intrest}`}
-            </p>
-          </div>
-          
+              <p className="expertise">
+                {Object.values(currentProfile).length === 0
+                  ? `Skills: ${currentUser.expertise}`
+                  : `Skills: ${currentProfile?.expertise}`}
+              </p>
+              <p className="intrest">
+                {Object.values(currentProfile).length === 0
+                  ? `Interests: ${currentUser.intrest}`
+                  : `Interests: ${currentProfile?.intrest}`}
+              </p>
+            </div>
           </div>
 
-            <p className="heading">
-              {Object.values(currentProfile).length === 0
-                ? currentUser.headline
-                : currentProfile?.headline}
-            </p>
-
-          </div>
-          
-
+          <p className="heading">
+            {Object.values(currentProfile).length === 0
+              ? currentUser.headline
+              : currentProfile?.headline}
+          </p>
+        </div>
 
         <p className="about">
           {Object.values(currentProfile).length === 0
