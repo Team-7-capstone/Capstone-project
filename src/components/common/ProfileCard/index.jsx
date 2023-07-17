@@ -99,10 +99,10 @@ export default function ProfileCard({ onEdit, currentUser }) {
             </div>
 
             
-            {/* <div className="music-button">
+            <div className="music-button">
             
               <AudioPlayer />
-            </div> */}
+            </div>
             {/* This is for individual audioPlayer */}
             {/* <div className="music-button">
               {audioFiles.map((audioFile) => (
