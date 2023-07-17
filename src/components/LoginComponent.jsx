@@ -29,7 +29,7 @@ const LoginComponent = () => {
   return (
     <div className="login-wrapper">
       <ParticleEffect />
-      <img src={MusicLogo} className="musicLogo" />
+
       <div className="login-wrapper-inner">
         <h1 className="heading">Sign in</h1>
         <p className="sub-heading">Find your inspiration</p>
@@ -58,6 +58,7 @@ const LoginComponent = () => {
         <div className="google-btn-container">
           <GoogleButton className="google-btn" onClick={googleSignIn} />
           <p className="go-to-signup">
+            <img src={MusicLogo} className="musicLogo" />
             New to myoozik?{" "}
             <span className="join-now" onClick={() => navigate("/register")}>
               Join Now
