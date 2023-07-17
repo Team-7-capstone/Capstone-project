@@ -75,7 +75,7 @@ const RegisterComponent = () => {
         <div className="google-btn-container">
           <GoogleButton className="google-btn" onClick={googleSignIn} />
           <p className="go-to-signup">
-            Already on Myoosik?{" "}
+            Already on myoozik?{" "}
             <span className="join-now" onClick={() => navigate("/")}>
               Log in
             </span>
