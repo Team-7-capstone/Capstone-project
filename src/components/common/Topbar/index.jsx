@@ -27,6 +27,10 @@ export default function Topbar({ currentUser }) {
   const [searchInput, setSearchInput] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState("");
 
+  const findCurrentUser = async() => {
+    await console.log(currentUser)
+  }
+
   let navigate = useNavigate();
   const goToRoute = (route) => {
     navigate(route);
@@ -119,7 +123,7 @@ export default function Topbar({ currentUser }) {
 
         </div>
       )}
-
+        {console.log(findCurrentUser())}
       <img
         className="user-logo"
         src={currentUser.imageLink}
