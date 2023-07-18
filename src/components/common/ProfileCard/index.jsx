@@ -99,28 +99,29 @@ export default function ProfileCard({ onEdit, currentUser }) {
             </div>
 
             
-            <div className="music-button">
-            
+            <div className="music-button">  
               <AudioPlayer />
             </div>
-            {/* This is for individual audioPlayer */}
-            {/* <div className="music-button">
-              {audioFiles.map((audioFile) => (
-                <AudioPlayer key={audioFile.name} audioUrl={audioFile.url} />
-              ))}
-            </div> */}
-            {/* This is for individual audioPlayer */}
 
             <div className="right-info">
               <p className="expertise">
                 {Object.values(currentProfile).length === 0
-                  ? `Skills: ${currentUser.expertise}`
-                  : `Skills: ${currentProfile?.expertise}`}
+
+                  ? currentUser.expertise
+                    ? `Skills: ${currentUser.expertise}`
+                    : "Skills:"
+                  : currentProfile?.expertise
+                  ? `Skills: ${currentProfile?.expertise}`
+                  : "Skills:"}
               </p>
               <p className="intrest">
                 {Object.values(currentProfile).length === 0
-                  ? `Interests: ${currentUser.intrest}`
-                  : `Interests: ${currentProfile?.intrest}`}
+                  ? currentUser.intrest
+                    ? `Interests: ${currentUser.intrest}`
+                    : "Interests:"
+                  : currentProfile?.intrest
+                  ? `Interests: ${currentProfile?.intrest}`
+                  : "Interests:"}
               </p>
             </div>
           </div>
@@ -137,6 +138,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
             ? `About: ${currentUser.aboutMe}`
             : `About: ${currentProfile?.aboutMe}`}
         </p>
+        <hr />
       </div>
 
       <div className="post-status-main">

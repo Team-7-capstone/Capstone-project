@@ -71,7 +71,7 @@ export default function PostStatus({ currentUser }) {
             setIsEdit(false);
           }}
         >
-          Compose a staff
+          Drop a bar
         </button>
       </div>
 
