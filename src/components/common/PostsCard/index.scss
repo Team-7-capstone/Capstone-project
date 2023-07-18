@@ -66,13 +66,14 @@
   top: 10px;
   .action-icon {
     color: #474747;
-    padding: 10px;
+    margin: 5px;
+
   }
 
   .action-icon:hover {
     color: #000000;
     background-color: #f8c499;
-    padding: 10px;
+    margin: 5px;
     border-radius: 50%;
   }
 }
