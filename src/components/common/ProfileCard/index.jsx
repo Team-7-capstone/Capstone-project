@@ -6,8 +6,13 @@ import { useLocation } from "react-router-dom";
 import FileUploadModal from "../FileUploadModal";
 import { uploadImage as uploadImageAPI } from "../../../api/ImageUpload";
 import "./index.scss";
+import AudioPlayer from "../AudioPlayer";
+import ReactDOM from "react-dom/client";
+import "../styles/index.css";
+import "../styles/customize-progress-bar.css";
 
 export default function ProfileCard({ onEdit, currentUser }) {
+  // const [audioFiles, setAudioFiles] = useState([]); // part of individual audioFiles
   let location = useLocation();
   const [allStatuses, setAllStatus] = useState([]);
   const [currentProfile, setCurrentProfile] = useState({});
@@ -93,15 +98,15 @@ export default function ProfileCard({ onEdit, currentUser }) {
               )}
             </div>
 
-            <div className="music-button">
-              {/* <img src="../../../assets/play2.png" alt="Play" /> */}
-              <button id="music-button">Click to Listen to my Music</button>
-              {/* player will go here */}
+            
+            <div className="music-button">  
+              <AudioPlayer />
             </div>
 
             <div className="right-info">
               <p className="expertise">
                 {Object.values(currentProfile).length === 0
+
                   ? currentUser.expertise
                     ? `Skills: ${currentUser.expertise}`
                     : "Skills:"

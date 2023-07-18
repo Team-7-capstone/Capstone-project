@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { RegisterAPI, GoogleSignInAPI } from "../api/AuthAPI";
 import MusicLogo from "../assets/musicLogo6.svg";
+import MyoozikBlue from "../assets/myoozik-blue.svg";
+import MyoozikOrange from "../assets/myoozik-orange.svg";
+import MyoozikBlue2 from "../assets/myoozik2-blue.svg";
+import MyoozikOrange2 from "../assets/myoozik2-orange.svg"
 import GoogleButton from "react-google-button";
 import "../Sass/LoginComponent.scss";
 import { toast } from "react-toastify";
@@ -38,6 +42,9 @@ const RegisterComponent = () => {
   };
   return (
     <div className="login-wrapper">
+      <div className="myoozik-wrapper">
+        <img src={MyoozikBlue} className="myoozik" />
+      </div>
       <ParticleEffect />
 
       <div className="login-wrapper-inner">

@@ -1,12 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
-.top {
+.top{
+
   background-color: #0e1727;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 
 .left {
   background-color: #0e1727;
@@ -38,6 +40,7 @@
       cursor: pointer;
       object-fit: cover;
       margin-top: 20px;
+      background-color: white;
     }
 
     #music-button {
@@ -86,12 +89,14 @@
   .edit-btn {
     position: absolute;
     right: 20px;
+  
 
     .edit-icon {
       cursor: pointer;
-      padding: 10px;
+      // padding: 10px;
       background-color: rgb(197, 197, 197);
       border-radius: 50%;
+      // z-index: 1;
     }
 
     .edit-icon:hover {
@@ -188,6 +193,7 @@
   position: absolute;
   right: 20px;
   top: 25px;
+  // z-index: 1;
 }
 
 .about {

@@ -49,6 +49,17 @@ body {
   // z-index: 1;
 }
 
+
+.myoozik-wrapper {
+  display:flex;
+  justify-content: center;
+  padding-left: 50px;
+}
+
+.myoozik {
+  width: 200px;
+}
+
 .musicLogo {
   width: 50px;
 }
