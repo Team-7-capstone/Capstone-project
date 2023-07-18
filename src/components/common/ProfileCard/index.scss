@@ -1,20 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
-
-.top{
+.top {
   background-color: #0e1727;
-
-  // background-image: url(../../../assets/colors.png);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.left{
-  // background-color: #eee1d0;
+.left {
   background-color: #0e1727;
-  margin-left: 20px; 
+  margin-left: 20px;
 }
 
 .profile-card {
@@ -29,7 +25,6 @@
 
   .profile-info {
     display: flex;
-    // justify-content: space-between;
     flex-direction: column;
     justify-content: flex-end;
 
@@ -46,7 +41,7 @@
     }
 
     #music-button {
-      margin: 20px; 
+      margin: 20px;
     }
 
     .music-button {
@@ -61,11 +56,8 @@
       width: 30%;
       margin: 25px;
       margin-right: 20px;
-      // border: 2px solid #cacaca;
-      // padding: 20px; 
-      border-radius: 5px;
-      // background-color: #eee1d0;
 
+      border-radius: 5px;
 
       .college,
       .company {
@@ -124,10 +116,8 @@
     font-size: 16px;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.9);
-    // width: 320px;
     line-height: 20px;
-    border: 2px solid #cacaca;
-    padding: 20px; 
+    padding: 20px;
     border-radius: 5px;
   }
 }
@@ -166,16 +156,10 @@
 
 .location {
   margin-bottom: 20px;
-  // font-size: 15px;
-  // border: 2px solid #cacaca;
-  // padding: 20px; 
-  // border-radius: 5px;
   margin-top: -10px;
   font-family: "Poppins";
-  // color: rgba(0, 0, 0, 0.404);
   color: white;
   font-size: 1rem;
-
 }
 
 .userEmail,
@@ -183,7 +167,6 @@
 .intrest {
   margin-top: -25px;
   font-family: "Poppins";
-  // color: rgba(0, 0, 0, 0.404);
   color: white;
   font-size: 1rem;
 }
@@ -191,25 +174,14 @@
 .expertise,
 .intrest {
   font-size: 1.1rem;
-  // color: rgba(0, 0, 0, 0.63);
   border: 2px solid #cacaca;
-  padding: 20px; 
+  padding: 20px;
   border-radius: 5px;
 }
 
 .expertise {
   margin-top: -9px;
   margin-bottom: 25px;
-}
-
-.heading {
-  margin-top: -15px;
-  font-family: "Poppins";
-  color: rgba(0, 0, 0, 0.575);
-  font-size: 1rem;
-  font-weight: 600px;
-  // width: 400px;
-  line-height: 20px;
 }
 
 .edit-btn {
@@ -220,11 +192,9 @@
 
 .about {
   font-size: 1rem;
-  border: 2px solid #cacaca;
-  padding: 20px; 
+  padding: 15px;
   border-radius: 5px;
 }
-
 
 button {
   font-family: "Poppins";

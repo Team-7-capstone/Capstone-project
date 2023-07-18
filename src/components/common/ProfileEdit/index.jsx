@@ -48,7 +48,7 @@ const ProfileEdit = ({ onEdit, currentUser }) => {
           value={editInputs.headline}
           name="headline"
           placeholder="Headline"
-          maxlength="50"
+          maxLength="50"
         />
 
         <label htmlFor="location">Location</label>
@@ -68,7 +68,7 @@ const ProfileEdit = ({ onEdit, currentUser }) => {
           type="text"
           value={editInputs.expertise}
           name="expertise"
-          placeholder="Expertise"
+          placeholder="Skills"
         />
 
         <label htmlFor="intrest">Interests</label>

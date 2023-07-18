@@ -57,34 +57,32 @@ export default function ProfileCard({ onEdit, currentUser }) {
           <></>
         )}
         <div className="profile-info">
-
           <div className="top">
+            <div className="left">
+              <img
+                className="profile-image"
+                onClick={() => setModalOpen(true)}
+                src={
+                  Object.values(currentProfile).length === 0
+                    ? currentUser.imageLink
+                    : currentProfile?.imageLink
+                }
+                alt="profile-image"
+              />
 
-          <div className="left">
-            <img
-              className="profile-image"
-              onClick={() => setModalOpen(true)}
-              src={
-                Object.values(currentProfile).length === 0
-                  ? currentUser.imageLink
-                  : currentProfile?.imageLink
-              }
-              alt="profile-image"
-            />
+              <h3 className="userName">
+                {Object.values(currentProfile).length === 0
+                  ? currentUser.name
+                  : currentProfile?.name}
+              </h3>
 
-            <h3 className="userName">
-              {Object.values(currentProfile).length === 0
-                ? currentUser.name
-                : currentProfile?.name}
-            </h3>
+              <p className="userEmail">
+                {Object.values(currentProfile).length === 0
+                  ? currentUser.email
+                  : currentProfile?.email}
+              </p>
 
-            <p className="userEmail">
-              {Object.values(currentProfile).length === 0
-                ? currentUser.email
-                : currentProfile?.email}
-            </p>
-
-            {currentUser.location || currentProfile?.location ? (
+              {currentUser.location || currentProfile?.location ? (
                 <p className="location">
                   {Object.values(currentProfile).length === 0
                     ? `${currentUser.location}`
@@ -96,43 +94,46 @@ export default function ProfileCard({ onEdit, currentUser }) {
             </div>
 
             <div className="music-button">
-              {/* <img src="../../../assets/play2.png" alt="Play"/> */}
+              {/* <img src="../../../assets/play2.png" alt="Play" /> */}
               <button id="music-button">Click to Listen to my Music</button>
               {/* player will go here */}
             </div>
-            
 
-            
             <div className="right-info">
-            <p className="expertise">
-              {Object.values(currentProfile).length === 0
-                ? `Skills: ${currentUser.expertise}`
-                : `Skills: ${currentProfile?.expertise}`}
-            </p>
-            <p className="intrest">
-              {Object.values(currentProfile).length === 0
-                ? `Interests: ${currentUser.intrest}`
-                : `Interests: ${currentProfile?.intrest}`}
-            </p>
-          </div>
-          
+              <p className="expertise">
+                {Object.values(currentProfile).length === 0
+                  ? currentUser.expertise
+                    ? `Skills: ${currentUser.expertise}`
+                    : "Skills:"
+                  : currentProfile?.expertise
+                  ? `Skills: ${currentProfile?.expertise}`
+                  : "Skills:"}
+              </p>
+              <p className="intrest">
+                {Object.values(currentProfile).length === 0
+                  ? currentUser.intrest
+                    ? `Interests: ${currentUser.intrest}`
+                    : "Interests:"
+                  : currentProfile?.intrest
+                  ? `Interests: ${currentProfile?.intrest}`
+                  : "Interests:"}
+              </p>
+            </div>
           </div>
 
-            <p className="heading">
-              {Object.values(currentProfile).length === 0
-                ? currentUser.headline
-                : currentProfile?.headline}
-            </p>
-
-          </div>
-          
-
+          <p className="heading">
+            {Object.values(currentProfile).length === 0
+              ? currentUser.headline
+              : currentProfile?.headline}
+          </p>
+        </div>
 
         <p className="about">
           {Object.values(currentProfile).length === 0
             ? `About: ${currentUser.aboutMe}`
             : `About: ${currentProfile?.aboutMe}`}
         </p>
+        <hr />
       </div>
 
       <div className="post-status-main">
